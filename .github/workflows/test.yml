@@ -1,0 +1,31 @@
+name: 'build-test'
+
+on:
+  pull_request:
+  push:
+    branches:
+      - master
+      - 'releases/*'
+
+jobs:
+  build: # make sure build/ci work properly
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: |
+          npm install
+      - run: |
+          npm run all
+
+  test: # make sure the action works on a clean machine without building
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ./
+        with:
+          jsonMode: 'unique'
+          sourceFile: ./data/african_proverbs.json
+          targetPath: ./data
+          destFile: ./data/african_proverbs_unique.json
+          targetProperty: 'african'
+          fields: 'text'
