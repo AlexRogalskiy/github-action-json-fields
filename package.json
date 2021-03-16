@@ -26,14 +26,15 @@
     "version": "git add -A dist",
     "postversion": "git push && git push --tags",
     "test:folio": "folio tests/spec/",
-    "test": "TZ=utc jest",
+    "test": "env-cmd --silent -e test jest",
     "test:coverage": "jest --collectCoverage",
     "test:watch": "jest --watch",
     "test:all": "npm run test && npm run test:folio",
     "all": "npm run format && npm run lint && npm run build"
   },
   "dependencies": {
-    "@actions/core": "^1.2.6"
+    "@actions/core": "^1.2.6",
+    "env-cmd": "^10.1.0"
   },
   "devDependencies": {
     "@semantic-release/changelog": "^5.0.1",

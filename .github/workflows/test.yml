@@ -12,20 +12,53 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: |
-          npm install
-      - run: |
+          with:
+            ref: ${{ github.head_ref }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v1
+
+      - name: Pull from current branch
+        run: git pull origin ${GITHUB_REF##*/}
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Build project
+        run: |
           npm run all
+
+      - name: Run tests
+        run: |
+          npm run test:all
 
   test: # make sure the action works on a clean machine without building
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+          with:
+            ref: ${{ github.head_ref }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v1
+
+      - name: Pull from current branch
+        run: git pull origin ${GITHUB_REF##*/}
+
+      - name: Install Dependencies
+        run: npm install
+
       - uses: ./
         with:
           jsonMode: 'unique'
           sourceFile: ./data/african_proverbs.json
           targetPath: ./data
-          destFile: ./data/african_proverbs_unique.json
+          destFile: african_proverbs_unique.json
           targetProperty: 'african'
           fields: 'text'
+
+      - name: Push changes
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Add images pulled from headless browser to folder
+          commit_options: '--no-verify --signoff'

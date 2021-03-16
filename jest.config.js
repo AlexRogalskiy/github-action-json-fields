@@ -4,9 +4,9 @@ module.exports = {
     clearMocks: true,
     moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
     testEnvironment: 'node',
-    testMatch: ['**/*.test.ts', '**/__tests__/**/?(*.)+(spec|test).ts'],
+    testMatch: ['**/*.test.(ts|js)', '**/__tests__/**/?(*.)+(spec|test).ts'],
     testRunner: 'jest-circus/runner',
-    testPathIgnorePatterns: ['/node_modules/', '/__fixtures__/'],
+    testPathIgnorePatterns: ['/node_modules/', '/__fixtures__/', '/spec/'],
     transform: {
         '^.+\\.(ts)$': 'ts-jest',
     },
@@ -14,6 +14,8 @@ module.exports = {
     collectCoverageFrom: [
         '**/*.ts',
         '!**/*.d.ts',
+        '!**/*.folio.ts',
+        '!**/*.spec.ts',
         '!**/dist/**',
         '!**/node_modules/**',
         '!**/vendor/**',

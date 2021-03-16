@@ -1,8 +1,8 @@
-# _Json unique fields_
+# _Json fields_
 
-> GitHub Action to generate json with unique fields
+> GitHub Action to process JSON file by provided fields
 
-[![GitHub marketplace](https://img.shields.io/badge/marketplacegithub-json--fields-unique-blue?logo=github)](https://github.com/marketplace/actions/json-fields)
+[![GitHub marketplace](https://img.shields.io/badge/marketplacegithub-json--fields-blue?logo=github)](https://github.com/marketplace/actions/json-fields)
 
 [![management: perfekt👌](https://img.shields.io/badge/management-perfekt👌-red.svg)](https://github.com/lekterable/perfekt)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
@@ -72,7 +72,7 @@
 
 <p align="center" style="text-align:center;">
     <a href="https://www.typescriptlang.org/">
-        <img src="https://img.shields.io/badge/javascript%20-%23323330.svg?&logo=javascript&logoColor=%23F7DF1E" alt="JavaScript" />
+        <img src="https://img.shields.io/badge/javascript%20-%23323330.svg?&logo=typescript&logoColor=%23F7DF1E" alt="Typescript" />
     </a>
     <a href="https://www.repostatus.org/#active">
         <img src="https://img.shields.io/badge/Project%20Status-Active-brightgreen" alt="Project Status: Active – The project has reached a stable, usable state and is being actively developed." />
@@ -85,71 +85,73 @@
     </a>
 </p>
 
-Creates _**Json Unique Fields**_ by language and input color parameters.
+Processes JSON file by provided list of fields and file source parameters.
 
 ## _Inputs_
 
-### `language`
+### `jsonMode`
 
-**Optional** Proverb's language (default **random**)
+**Required** JSON operation mode
 
-### `pattern`
+#### `unique`
 
-**Optional** Proverb's image background pattern (default **random**)
+Only unique fields to be filtered
 
-### `width`
+#### `duplicate`
 
-**Optional** Proverb's image width (default **100%**)
+Only duplicate fields to be filtered
 
-### `height`
+### `sourceFile`
 
-**Optional** Proverb's image height (default **100%**)
+**Required** JSON source file to operate by
 
-### `backgroundColor`
+### `targetPath`
 
-**Optional** Proverb's image background color (default **%23FFFFFF**)
+**Required** Target path to store filtered JSON file
 
-### `fontColor`
+### `destFile`
 
-**Optional** Proverb's image font color (default **%230A83DC**)
+**Required** JSON destination file name
 
-### `opacity`
+### `targetProperty`
 
-**Optional** Proverb's image background opacity (default **0.3**)
+**Required** String representing slash-separated list of properties hierarchy to operate by (**property1/property2/.../propertyN**)
 
-### `colorPattern`
+### `fields`
 
-**Optional** Proverb's image text color (default **%23FFE0E9**)
-
-### `name`
-
-**Optional** Proverb's image name (default **proverb**)
-
-### `path`
-
-**Optional** Proverb's image path (default **images**)
+**Optional** String representing comma-separated list of fields to operate by (**field1,field2,...,fieldN**)
 
 ## _Outputs_
 
-### `image`
+### `status`
 
-Generated proverb image (stored in the `path` directory)
+JSON operation status
+
+#### `true`
+
+When file successfully processed and stored to destination folder
+
+#### `false`
+
+When errors occurred while processing source file
 
 ## _Examples_
 
 ```yml
-- name: Create json with unique fields
+- name: Process JSON file by fields
   uses: alexrogalskiy/github-action-json-fields@master
   with:
-    language: 'french'
-    pattern: 'wiggle'
-    name: 'proverb'
-    path: 'images'
+    jsonMode: 'unique'
+    sourceFile: ./data/african_proverbs.json
+    targetPath: ./data
+    destFile: african_proverbs_unique.json
+    targetProperty: 'african'
+    fields: 'text'
 ```
 
 Running locally:
 
-- `npm run start:action --action github-action-json-fields --language 'french' --pattern 'wiggle' --name proverb --path images`
+- `npm run start:action --action github-action-json-fields --jsonMode 'unique' --sourceFile './data/african_proverbs.json' --targetPath './data' --destFile 'african_proverbs_unique.json' --targetProperty 'african' --fields 'text'`
 
 ## _Visitor stats_
 
@@ -161,7 +163,7 @@ Running locally:
 
 ## _Licensing_
 
-_**Json Unique Fields**_ is distributed under LGPL version 3 or later,
+_**Json Fields**_ is distributed under LGPL version 3 or later,
 [[License](https://github.com/AlexRogalskiy/github-action-json-fields/blob/master/LICENSE)]. LGPLv3 is additional
 permissions on top of GPLv3.
 
@@ -169,7 +171,7 @@ permissions on top of GPLv3.
 
 ## _Authors_
 
-_**Json Unique Fields**_ is maintained by the following GitHub team-members:
+_**Json Fields**_ is maintained by the following GitHub team-members:
 
 - [![Author](https://img.shields.io/badge/author-AlexRogalskiy-FB8F0A)](https://github.com/AlexRogalskiy)
 
@@ -207,7 +209,7 @@ See also the list of [contributors][contributors] who participated in this proje
 
 ## _Development Support_
 
-Like _**Json Unique Fields**_ ? Consider buying me a coffee :\)
+Like _**Json Fields**_ ? Consider buying me a coffee :\)
 
 [![Become a Patron](https://img.shields.io/badge/Become_Patron-Support_me_on_Patreon-blue.svg?style=flat-square&logo=patreon&color=e64413)](https://www.patreon.com/alexrogalskiy)
 [![Buy Me A Coffee](https://img.shields.io/badge/Donate-Buy%20me%20a%20coffee-yellow.svg?logo=buy%20me%20a%20coffee)](https://www.buymeacoffee.com/AlexRogalskiy)

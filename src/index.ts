@@ -76,14 +76,14 @@ const storeData = async (filePath: string, fileName: string, data: any): Promise
 }
 
 export default async function run(): Promise<void> {
-    const jsonMode = 'unique' || core.getInput('jsonMode', { required: true })
-    const sourceFile = './data/african_proverbs.json' || core.getInput('sourceFile', { required: true })
+    const jsonMode = core.getInput('jsonMode', { required: true })
+    const sourceFile = core.getInput('sourceFile', { required: true })
 
-    const destPath = 'data' || core.getInput('targetPath', { required: true })
-    const destFile = './data/african_proverbs_unique.json' || core.getInput('destFile', { required: true })
+    const destPath = core.getInput('targetPath', { required: true })
+    const destFile = core.getInput('destFile', { required: true })
 
-    const targetProperty = ('african' || core.getInput('targetProperty', { required: true })).split('/')
-    const fieldsToCompare = ('text' || core.getInput('fields', { required: true })).split(',')
+    const targetProperty = core.getInput('targetProperty', { required: true }).split('/')
+    const fieldsToCompare = core.getInput('fields', { required: true }).split(',')
 
     const mode: JsonMode = JsonMode[jsonMode]
 
