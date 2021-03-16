@@ -11,6 +11,7 @@
     "format:check": "prettier --check **/*.ts",
     "lint:editorconfig": "editorconfig-checker -exclude \\.yml$",
     "start:action": "npm run build && node dist/index.js",
+    "dev": "env-cmd --silent -e dev npm run start:action",
     "lint": "eslint --cache --fix --quiet --format codeframe --ext js,ts .",
     "lint:staged": "lint-staged --no-stash --allow-empty",
     "pretty": "pretty-quick --staged --pattern '!test/tests/lint/**'",
