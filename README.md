@@ -45,6 +45,7 @@
       * [<em>Table of contents</em>](#table-of-contents)
       * [<em>Description</em>](#description)
       * [<em>Inputs</em>](#inputs)
+         * [sourceData](#sourcedata)
          * [mode](#mode)
             * [unique](#unique)
             * [duplicate](#duplicate)
