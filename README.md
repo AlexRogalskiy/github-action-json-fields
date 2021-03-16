@@ -89,6 +89,31 @@ Processes JSON file by provided list of fields and file source parameters.
 
 ## _Inputs_
 
+### `sourceData`
+
+**Optional** JSON data source file with following action parameters (just for actual example):
+
+```json
+[
+    {
+        "sourceFile": "./data/african_proverbs.json",
+        "targetPath": "./data",
+        "targetFile": "african_proverbs_unique.json",
+        "mode": "unique",
+        "jsonPath": "$.african[*]",
+        "jsonFields": "text"
+    },
+    {
+        "sourceFile": "./data/gypsy_proverbs.json",
+        "targetPath": "./data",
+        "targetFile": "gypsy_proverbs_unique.json",
+        "mode": "unique",
+        "jsonPath": "$.gypsy[*]",
+        "jsonFields": "text"
+    }
+]
+```
+
 ### `mode`
 
 **Required** JSON operation mode
@@ -121,17 +146,17 @@ More information on JSON path queries can be found at [jsonpath](https://www.npm
 
 ### `targetFile`
 
-**Required** Target JSON destination file name
+**Optional** Target JSON destination file name (default **sourceFile**)
 
 ## _Outputs_
 
 ### `changed`
 
-JSON operation status
+JSON processing operation status
 
 #### `true`
 
-When JSON file successfully processed and results stored to destination folder
+When JSON source file successfully processed and results stored to destination folder
 
 #### `false`
 

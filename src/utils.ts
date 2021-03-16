@@ -33,6 +33,10 @@ export const deserialize = (obj: string, callback?: (this: any, key: string, val
     return JSON.parse(obj, callback)
 }
 
+export const isBlankString = (value: string): boolean => {
+    return !value || /^\s*$/.test(value)
+}
+
 export const getDataByKeys = <T>(obj: T, keys: PropertyKey[]): any => {
     for (const key of keys) {
         obj = obj && obj[key]

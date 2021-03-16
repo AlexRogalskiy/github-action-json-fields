@@ -10,4 +10,16 @@ export declare enum JsonMode {
  * @desc Type representing [`Optional`] in TypeScript: `T | null | undefined`
  */
 export declare type Optional<T> = T | null | undefined;
+/**
+ * ConfigOptions
+ * @desc Type representing configuration options
+ */
+export declare type ConfigOptions = {
+    sourceFile?: string;
+    targetPath?: string;
+    targetFile?: string;
+    jsonMode?: JsonMode;
+    jsonPath?: string;
+    jsonFields?: string[];
+};
 //# sourceMappingURL=types.d.ts.map

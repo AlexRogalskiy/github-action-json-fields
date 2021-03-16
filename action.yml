@@ -3,6 +3,9 @@ description: 'Process JSON file by provided fields and operation mode (unique/du
 author: 'AlexRogalskiy'
 
 inputs:
+  sourceData:
+    description: 'JSON data source with action parameters'
+    required: false
   mode:
     description: 'JSON operation mode (unique/duplicate)'
     required: true
@@ -20,7 +23,7 @@ inputs:
     required: true
   targetFile:
     description: 'Target JSON destination file name'
-    required: true
+    required: false
 
 outputs:
   changed:
