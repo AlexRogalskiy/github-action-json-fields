@@ -32,3 +32,23 @@ export const deserialize = (obj: string, callback?: (this: any, key: string, val
     // return isFunction(callback) ? JSON.parse(obj, callback) : JSON.parse(obj)
     return JSON.parse(obj, callback)
 }
+
+export const getDataByKeys = <T>(obj: T, keys: PropertyKey[]): any => {
+    for (const key of keys) {
+        obj = obj && obj[key]
+    }
+
+    return obj
+}
+
+export const setDataByKeys = <T>(obj: T, value: any, keys: PropertyKey[]): void => {
+    const last = keys.length - 1
+    const prop = keys[last]
+
+    keys = keys.slice(0, last)
+    for (const key of keys) {
+        obj = obj && obj[key]
+    }
+
+    obj[prop] = value
+}

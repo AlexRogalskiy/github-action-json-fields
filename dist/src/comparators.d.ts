@@ -87,7 +87,7 @@ export declare const compareByPropertyOrder: <T>(a: T, b: T, prop: PropertyKey, 
  * @public
  * @param {Comparator} comparators collection to operate by
  */
-export declare const compareBy: <T>(...comparators: Comparator<T>[]) => Comparator<T>;
+export declare const compareBy: <T>(...comparators: Comparator<any>[]) => Comparator<T>;
 /**
  * @public
  * @param {String} a Input string.

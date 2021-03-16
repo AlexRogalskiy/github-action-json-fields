@@ -133,7 +133,7 @@ export const compareByLength = <T extends string>(a: T, b: T, mode: ComparatorMo
  * @return {Function} -1 - lower, 0 - equals, 1 - greater
  */
 export const compareByPropertyKey = <T>(prop: PropertyKey, comparator: Comparator<T>): Comparator<T> => {
-    return (a, b) => {
+    return <TT>(a: TT, b: TT) => {
         if (isObject(a) && isObject(b)) {
             const a_ = a[prop]
             const b_ = b[prop]
@@ -220,7 +220,7 @@ export const compareByPropertyOrder = <T>(
  * @public
  * @param {Comparator} comparators collection to operate by
  */
-export const compareBy = <T>(...comparators: Comparator<T>[]): Comparator<T> => {
+export const compareBy = <T>(...comparators: Comparator<any>[]): Comparator<T> => {
     return (a, b): number => {
         for (const comparator of comparators) {
             const value = comparator(a, b)

@@ -89,51 +89,53 @@ Processes JSON file by provided list of fields and file source parameters.
 
 ## _Inputs_
 
-### `jsonMode`
+### `mode`
 
 **Required** JSON operation mode
 
 #### `unique`
 
-Only unique fields to be filtered
+Only unique fields must be processed
 
 #### `duplicate`
 
-Only duplicate fields to be filtered
+Only duplicate fields must be processed
+
+### `jsonPath`
+
+**Required** String representing JSON query path (**$.property1.property2**)
+
+More information on JSON path queries can be found at [jsonpath](https://www.npmjs.com/package/jsonpath)
+
+### `jsonFields`
+
+**Optional** String representing comma-separated list of fields to process (**field1,field2,...,fieldN**)
 
 ### `sourceFile`
 
-**Required** JSON source file to operate by
+**Required** Source JSON file to process
 
 ### `targetPath`
 
-**Required** Target path to store filtered JSON file
+**Required** Target path to store processed JSON file
 
-### `destFile`
+### `targetFile`
 
-**Required** JSON destination file name
-
-### `targetProperty`
-
-**Required** String representing slash-separated list of properties hierarchy to operate by (**property1/property2/.../propertyN**)
-
-### `fields`
-
-**Optional** String representing comma-separated list of fields to operate by (**field1,field2,...,fieldN**)
+**Required** Target JSON destination file name
 
 ## _Outputs_
 
-### `status`
+### `changed`
 
 JSON operation status
 
 #### `true`
 
-When file successfully processed and stored to destination folder
+When JSON file successfully processed and results stored to destination folder
 
 #### `false`
 
-When errors occurred while processing source file
+When error occurred while processing JSON source file
 
 ## _Examples_
 
@@ -141,17 +143,17 @@ When errors occurred while processing source file
 - name: Process JSON file by fields
   uses: alexrogalskiy/github-action-json-fields@master
   with:
-    jsonMode: 'unique'
+    mode: 'unique'
+    jsonPath: 'african'
+    jsonFields: 'text'
     sourceFile: ./data/african_proverbs.json
     targetPath: ./data
-    destFile: african_proverbs_unique.json
-    targetProperty: 'african'
-    fields: 'text'
+    targetFile: african_proverbs_unique.json
 ```
 
 Running locally:
 
-- `npm run start:action --action github-action-json-fields --jsonMode 'unique' --sourceFile './data/african_proverbs.json' --targetPath './data' --destFile 'african_proverbs_unique.json' --targetProperty 'african' --fields 'text'`
+- `npm run start:action --action github-action-json-fields --mode 'unique' --jsonPath 'african' --jsonFields 'text' --sourceFile './data/african_proverbs.json' --targetPath './data' --targetFile 'african_proverbs_unique.json'`
 
 ## _Visitor stats_
 

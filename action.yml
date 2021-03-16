@@ -1,29 +1,29 @@
 name: 'Json Fields'
-description: 'Create JSON file with filtered fields (unique/duplicate)'
+description: 'Process JSON file by provided fields and operation mode (unique/duplicate)'
 author: 'AlexRogalskiy'
 
 inputs:
-  jsonMode:
+  mode:
     description: 'JSON operation mode (unique/duplicate)'
     required: true
+  jsonPath:
+    description: 'String representing JSON query path'
+    required: true
+  jsonFields:
+    description: 'String representing comma-separated list of fields to process'
+    required: true
   sourceFile:
-    description: 'JSON source file'
+    description: 'Source JSON file to process'
     required: true
   targetPath:
-    description: 'Target path to store filtered JSON file'
+    description: 'Target path to store processed JSON file'
     required: true
-  destFile:
-    description: 'JSON destination file name'
-    required: true
-  targetProperty:
-    description: 'JSON target property name to operate by'
-    required: true
-  fields:
-    description: 'JSON fields to operate by'
+  targetFile:
+    description: 'Target JSON destination file name'
     required: true
 
 outputs:
-  status:
+  changed:
     description: 'JSON operation status'
 
 runs:

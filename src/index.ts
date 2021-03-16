@@ -1,4 +1,5 @@
 import * as core from '@actions/core'
+import * as jp from 'jsonpath'
 import { readFileSync, writeFile } from 'fs'
 import { join } from 'path'
 
@@ -7,66 +8,64 @@ import { JsonMode } from '../typings/types'
 import { deserialize, ensureDirExists, serialize } from './utils'
 import { getType, isArray } from './validators'
 import { valueError } from './errors'
-import { compareBy, compareByPropertyKey, compareIgnoreCase } from './comparators'
+import { Comparator, compareBy, compareByPropertyKey, compareIgnoreCase } from './comparators'
 
-const getPropertyData = <T>(obj: T, keys: PropertyKey[]): any => {
-    for (const key of keys) {
-        obj = obj && obj[key]
-    }
+const getFilter = <T>(jsonMode: JsonMode) => (a: T, b: T): boolean =>
+    jsonMode === JsonMode.unique ? a === b : a !== b
 
-    return obj
-}
-
-const setPropertyData = <T>(obj: T, value: any, keys: PropertyKey[]): void => {
-    const prop = keys[keys.length - 1]
-
-    keys = keys.slice(0, keys.length - 1)
-    for (const key of keys) {
-        obj = obj && obj[key]
-    }
-
-    obj[prop] = value
-}
-
-const createData = async (
-    fileName: string,
-    jsonMode: JsonMode,
-    keys: PropertyKey[],
-    fields: PropertyKey[]
-): Promise<any> => {
-    const filter = <T>(a: T, b: T): boolean => (jsonMode === JsonMode.unique ? a === b : a !== b)
+const getComparator = (fields: PropertyKey[]): Comparator<any> => {
     const comparators = fields.map(field =>
         compareByPropertyKey(field, (a: string, b: string) => compareIgnoreCase(a, b))
     )
-    const complexComparator = compareBy(...comparators)
 
+    return compareBy(...comparators)
+}
+
+const getJsonData = (fileName: string): any => {
     const fileData = readFileSync(fileName)
-    const jsonData = deserialize(fileData.toString())
-    const propertyData = getPropertyData(jsonData, keys)
+
+    return deserialize(fileData.toString())
+}
+
+const processSourceFile = async (
+    fileName: string,
+    jsonMode: JsonMode,
+    jsonPath: string,
+    fields: PropertyKey[]
+): Promise<any> => {
+    const filterMode = getFilter(jsonMode)
+    const comparator = getComparator(fields)
+    const jsonData = getJsonData(fileName)
+
+    const propertyData = jp.query(jsonData, jsonPath)
 
     if (!isArray(propertyData)) {
-        throw valueError(`Invalid property data type: ${getType(propertyData)}, should be array`)
+        throw valueError(
+            `Invalid data type: ${getType(propertyData)} for property: ${jsonPath}, should be an array`
+        )
     }
 
-    const filteredData = propertyData.filter((arr, index, self) =>
-        filter(
+    const parentPath = jp.stringify(jp.parse(jsonPath).slice(0, -1))
+    const filteredData = propertyData.filter((item, index, self) =>
+        filterMode(
             index,
-            self.findIndex(t => complexComparator(t, arr) === 0)
+            self.findIndex(value => comparator(value, item) === 0)
         )
     )
 
-    setPropertyData(jsonData, filteredData, keys)
+    jp.value(jsonData, parentPath, filteredData)
 
     return jsonData
 }
 
-const storeData = async (filePath: string, fileName: string, data: any): Promise<boolean> => {
-    const targetPath = join(filePath, fileName)
-    core.info(`Storing JSON data to target file: ${targetPath}`)
-
+const storeJsonData = async (filePath: string, fileName: string, data: any): Promise<boolean> => {
     ensureDirExists(filePath)
 
-    writeFile(fileName, serialize(data), err => {
+    const targetPath = join(filePath, fileName)
+
+    core.info(`Storing JSON data to target file: ${targetPath}`)
+
+    writeFile(targetPath, serialize(data), err => {
         if (err) {
             throw err
         }
@@ -76,30 +75,27 @@ const storeData = async (filePath: string, fileName: string, data: any): Promise
 }
 
 export default async function run(): Promise<void> {
-    const jsonMode = core.getInput('jsonMode', { required: true })
-    const sourceFile = core.getInput('sourceFile', { required: true })
-
-    const destPath = core.getInput('targetPath', { required: true })
-    const destFile = core.getInput('destFile', { required: true })
-
-    const targetProperty = core.getInput('targetProperty', { required: true }).split('/')
-    const fieldsToCompare = core.getInput('fields', { required: true }).split(',')
-
-    const mode: JsonMode = JsonMode[jsonMode]
-
     try {
+        const sourceFile = core.getInput('sourceFile', { required: true })
+        const targetPath = core.getInput('targetPath', { required: true })
+        const targetFile = core.getInput('targetFile', { required: true })
+
+        const mode = core.getInput('mode', { required: true })
+        const jsonPath = core.getInput('jsonPath', { required: true })
+        const jsonFields = core.getInput('jsonFields', { required: true }).split(',')
+
+        const jsonMode: JsonMode = JsonMode[mode]
+
         core.info(
-            `Processing JSON file by path: ${sourceFile}, mode: ${mode}, target property: ${targetProperty}, fields: ${fieldsToCompare}`
+            `Processing source JSON file: ${sourceFile} with mode: ${jsonMode}, path: ${jsonPath}, fields: ${jsonFields}`
         )
 
-        const jsonData = await createData(sourceFile, mode, targetProperty, fieldsToCompare)
-        const status = await storeData(destPath, destFile, jsonData)
+        const jsonData = await processSourceFile(sourceFile, jsonMode, jsonPath, jsonFields)
+        const changed = await storeJsonData(targetPath, targetFile, jsonData)
 
-        core.setOutput('status', status)
+        core.setOutput('changed', changed)
     } catch (e) {
-        core.setFailed(
-            `Cannot store JSON data to file: ${destFile}, path: ${destPath}, message: ${e.message}`
-        )
+        core.setFailed(`Cannot process JSON data, message: ${e.message}`)
     }
 }
 
