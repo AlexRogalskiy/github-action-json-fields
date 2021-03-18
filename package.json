@@ -9,7 +9,7 @@
     "scripts": {
         "format": "prettier --single-quote --write **/*.ts",
         "format:check": "prettier --check **/*.ts",
-        "lint:editorconfig": "editorconfig-checker -exclude \\.yml$",
+        "lint:editorconfig": "editorconfig-checker",
         "start:action": "npm run build && node dist/index.js",
         "dev": "env-cmd --silent -e dev npm run start:action",
         "lint": "eslint --cache --fix --quiet --format codeframe --ext js,ts .",

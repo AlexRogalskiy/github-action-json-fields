@@ -1,4 +1,5 @@
 import { existsSync, mkdirSync } from 'fs'
+import { isFunction, isNull, isUndefined } from './validators'
 
 export const toString = (value: string | string[]): string => (Array.isArray(value) ? value[0] : value)
 
@@ -12,11 +13,30 @@ export const hasPrototypeProperty = (obj: any, name: string): boolean => {
     return !obj.hasOwnProperty(name) && name in obj
 }
 
-export const hasProperty = (obj: any, prop: PropertyKey): boolean => {
+/**
+ * Returns a boolean indicating whether the object has the specified property.
+ * @param {Object} obj An object.
+ * @param {String} prop A property name.
+ * @returns {Boolean}
+ */
+export const hasProperty2 = (obj: any, prop: PropertyKey): boolean => {
     const proto = obj.__proto__ || obj.constructor.prototype
 
-    //return (prop in obj) && (!(prop in proto) || proto[prop] !== obj[prop]);
     return prop in obj || prop in proto || proto[prop] === obj[prop]
+}
+
+/**
+ * Returns a boolean indicating whether the object has the specified property.
+ * @param {Object} obj An object.
+ * @param {String} prop A property name.
+ * @returns {Boolean}
+ */
+export const hasProperty = (obj: any, prop: PropertyKey): boolean => {
+    if (isNull(obj) || isUndefined(obj)) {
+        return false
+    }
+
+    return isFunction(obj.hasOwnProperty) ? obj.hasOwnProperty(prop) : prop in obj
 }
 
 export const serialize = (
