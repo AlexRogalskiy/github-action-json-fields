@@ -59,13 +59,14 @@ export declare const compareByLength: <T extends string>(a: T, b: T, mode?: Comp
  * @param {String} comparator Input string to compare with.
  * @return {Function} -1 - lower, 0 - equals, 1 - greater
  */
-export declare const compareByPropertyKey: <T>(prop: PropertyKey, comparator: Comparator<T>) => Comparator<T>;
+export declare const compareByPropertyKey: <T>(prop: PropertyKey, comparator?: Comparator<T>) => Comparator<T>;
 /**
  * @public
  * @param {PropertyKey} prop initial input {@link String} or {@link Number} property name to compare by
+ * @param comparator initial input {@link Comparator} to operate by
  * @return {@link Number} -1 - lower, 0 - equals, 1 - greater
  */
-export declare const compareByPropertyDefault: <T>(prop: PropertyKey) => Comparator<T>;
+export declare const compareByPropertyDefault: <T>(prop: PropertyKey, comparator?: Comparator<T>) => Comparator<T>;
 /**
  * @public
  * @param {String} a Input string.
@@ -117,5 +118,5 @@ export declare const compareByLocaleOptions: <T extends string>(a: T, b: T, mode
  * @return {number} -1 - lower, 0 - equals, 1 - greater
  * @param list initial input {@link string} array of items to compare by
  */
-export declare const normalizeAndCompare: (list: string[]) => PropertyComparator<any>;
+export declare const normalizeAndCompare: PropertyComparator<any>;
 //# sourceMappingURL=comparators.d.ts.map

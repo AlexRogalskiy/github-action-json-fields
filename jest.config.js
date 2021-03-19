@@ -8,11 +8,11 @@ module.exports = {
     testRunner: 'jest-circus/runner',
     testPathIgnorePatterns: ['/node_modules/', '/__fixtures__/', '/spec/'],
     transform: {
-        '^.+\\.(ts)$': 'ts-jest',
+        '^.+\\.(js|ts)$': 'ts-jest',
     },
     collectCoverage: true,
     collectCoverageFrom: [
-        '**/*.ts',
+        '**/*.(ts|js)',
         '!**/*.d.ts',
         '!**/*.folio.ts',
         '!**/*.spec.ts',

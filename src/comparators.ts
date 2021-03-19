@@ -132,7 +132,10 @@ export const compareByLength = <T extends string>(a: T, b: T, mode: ComparatorMo
  * @param {String} comparator Input string to compare with.
  * @return {Function} -1 - lower, 0 - equals, 1 - greater
  */
-export const compareByPropertyKey = <T>(prop: PropertyKey, comparator: Comparator<T>): Comparator<T> => {
+export const compareByPropertyKey = <T>(
+    prop: PropertyKey,
+    comparator: Comparator<T> = compareByOrder
+): Comparator<T> => {
     return <TT>(a: TT, b: TT) => {
         if (isObject(a) && isObject(b)) {
             const a_ = a[prop]
@@ -161,10 +164,14 @@ export const compareByPropertyKey = <T>(prop: PropertyKey, comparator: Comparato
 /**
  * @public
  * @param {PropertyKey} prop initial input {@link String} or {@link Number} property name to compare by
+ * @param comparator initial input {@link Comparator} to operate by
  * @return {@link Number} -1 - lower, 0 - equals, 1 - greater
  */
-export const compareByPropertyDefault = <T>(prop: PropertyKey): Comparator<T> => {
-    return (a: T, b: T) => {
+export const compareByPropertyDefault = <T>(
+    prop: PropertyKey,
+    comparator: Comparator<T> = compareByOrder
+): Comparator<T> => {
+    return <TT>(a: TT, b: TT) => {
         if (!hasProperty(a, prop)) {
             throw valueError(`Property=${String(prop)} not exists on object=${a}`)
         }
@@ -173,7 +180,13 @@ export const compareByPropertyDefault = <T>(prop: PropertyKey): Comparator<T> =>
             throw valueError(`Property=${String(prop)} not exists on object=${b}`)
         }
 
-        return compareByOrder(a[prop], b[prop])
+        const comparator_ = isFunction(comparator) ? comparator : null
+
+        if (!comparator_) {
+            throw valueError(`Invalid comparator type: ${comparator_}, should be valid Comparator`)
+        }
+
+        return comparator_(a[prop], b[prop])
     }
 }
 
@@ -320,7 +333,7 @@ export const compareByLocaleOptions = (() => {
             }
         }
 
-        return 0
+        return result ? result : 0
     }
 })()
 
@@ -329,7 +342,7 @@ export const compareByLocaleOptions = (() => {
  * @return {number} -1 - lower, 0 - equals, 1 - greater
  * @param list initial input {@link string} array of items to compare by
  */
-export const normalizeAndCompare = (list: string[]): PropertyComparator<any> => {
+export const normalizeAndCompare = ((...list: string[]): PropertyComparator<any> => {
     return (a: any, b: any, value: string): number => {
         if (a === null || b === null) {
             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -341,6 +354,6 @@ export const normalizeAndCompare = (list: string[]): PropertyComparator<any> => 
         const first = a.normalize(value_)
         const second = b.normalize(value_)
 
-        return +(first > second) || -(first < second) || 1
+        return +(first > second) || -(first < second) || 0
     }
-}
+})('NFC', 'NFD', 'NFKC', 'NFKD')
