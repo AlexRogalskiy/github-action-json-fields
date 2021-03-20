@@ -1,12 +1,4 @@
-/**
- * Comparator types
- */
-export declare type Comparator<T> = (a: T, b: T) => number;
-export declare type PropertyComparator<T> = (a: T, b: T, value: string) => number;
-/**
- * Comparator modes
- */
-export declare type ComparatorMode = 'asc' | 'desc';
+import { Comparator, ComparatorMode, PropertyComparator } from '../typings/standard-types';
 /**
  * @public
  * @param {String} a Input value.

@@ -1,18 +1,8 @@
-import { Optional } from '../typings/types'
+import { Comparator, ComparatorMode, Optional, PropertyComparator } from '../typings/standard-types'
 
 import { hasProperty } from './utils'
 import { valueError } from './errors'
 import { isArray, isFunction, isNullOrUndefined, isObject, isString } from './validators'
-
-/**
- * Comparator types
- */
-export type Comparator<T> = (a: T, b: T) => number
-export type PropertyComparator<T> = (a: T, b: T, value: string) => number
-/**
- * Comparator modes
- */
-export type ComparatorMode = 'asc' | 'desc'
 
 /**
  * @public

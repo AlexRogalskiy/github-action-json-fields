@@ -3,15 +3,18 @@ import * as jp from 'jsonpath'
 import { readFileSync, writeFile } from 'fs'
 import { basename, join } from 'path'
 
-import { ConfigOptions, JsonMode } from '../typings/types'
+import { ConfigOptions } from '../typings/types'
+import { JsonMode } from '../typings/enum-types'
+import { BiPredicate, Comparator } from '../typings/standard-types'
 
 import { deserialize, ensureDirExists, isBlankString, serialize } from './utils'
 import { getType, isArray } from './validators'
 import { valueError } from './errors'
-import { Comparator, compareBy, compareByPropertyKey, compareIgnoreCase } from './comparators'
+import { compareBy, compareByPropertyKey, compareIgnoreCase } from './comparators'
 
-const getFilter = <T>(jsonMode: JsonMode) => (a: T, b: T): boolean =>
-    jsonMode === JsonMode.unique ? a === b : a !== b
+const getFilter = <T>(jsonMode: JsonMode): BiPredicate<T> => {
+    return (a: T, b: T) => (jsonMode === JsonMode.unique ? a === b : a !== b)
+}
 
 const getComparator = (fields: PropertyKey[]): Comparator<any> => {
     const comparators = fields.map(field =>
