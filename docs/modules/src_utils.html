@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>utils | github-action-json-fields</title>
+	<title>src/utils | github-action-json-fields</title>
 	<meta name="description" content="Documentation for github-action-json-fields">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -53,10 +53,10 @@
 					<a href="../modules.html">github-action-json-fields</a>
 				</li>
 				<li>
-					<a href="utils.html">utils</a>
+					<a href="src_utils.html">src/utils</a>
 				</li>
 			</ul>
-			<h1>Module utils</h1>
+			<h1>Module src/utils</h1>
 		</div>
 	</div>
 </header>
@@ -70,12 +70,16 @@
 						<section class="tsd-index-section ">
 							<h3>Functions</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-function tsd-parent-kind-module"><a href="utils.html#deserialize" class="tsd-kind-icon">deserialize</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-module"><a href="utils.html#ensuredirexists" class="tsd-kind-icon">ensure<wbr>Dir<wbr>Exists</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-module"><a href="utils.html#hasproperty" class="tsd-kind-icon">has<wbr>Property</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-module"><a href="utils.html#hasprototypeproperty" class="tsd-kind-icon">has<wbr>Prototype<wbr>Property</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-module"><a href="utils.html#serialize" class="tsd-kind-icon">serialize</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-module"><a href="utils.html#tostring" class="tsd-kind-icon">to<wbr>String</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="src_utils.html#deserialize" class="tsd-kind-icon">deserialize</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="src_utils.html#ensuredirexists" class="tsd-kind-icon">ensure<wbr>Dir<wbr>Exists</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter"><a href="src_utils.html#getdatabykeys" class="tsd-kind-icon">get<wbr>Data<wbr>ByKeys</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="src_utils.html#hasproperty" class="tsd-kind-icon">has<wbr>Property</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="src_utils.html#hasproperty2" class="tsd-kind-icon">has<wbr>Property2</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="src_utils.html#hasprototypeproperty" class="tsd-kind-icon">has<wbr>Prototype<wbr>Property</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="src_utils.html#isblankstring" class="tsd-kind-icon">is<wbr>Blank<wbr>String</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="src_utils.html#serialize" class="tsd-kind-icon">serialize</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter"><a href="src_utils.html#setdatabykeys" class="tsd-kind-icon">set<wbr>Data<wbr>ByKeys</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="src_utils.html#tostring" class="tsd-kind-icon">to<wbr>String</a></li>
 							</ul>
 						</section>
 					</div>
@@ -93,7 +97,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/AlexRogalskiy/github-action-json-fields/blob/1b8caa5/src/utils.ts#L31">utils.ts:31</a></li>
+									<li>Defined in <a href="https://github.com/AlexRogalskiy/github-action-json-fields/blob/d46beb2/src/utils.ts#L51">src/utils.ts:51</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -140,7 +144,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/AlexRogalskiy/github-action-json-fields/blob/1b8caa5/src/utils.ts#L5">utils.ts:5</a></li>
+									<li>Defined in <a href="https://github.com/AlexRogalskiy/github-action-json-fields/blob/d46beb2/src/utils.ts#L6">src/utils.ts:6</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -150,6 +154,38 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
+					<a name="getdatabykeys" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> get<wbr>Data<wbr>ByKeys</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Data<wbr>ByKeys&lt;T&gt;<span class="tsd-signature-symbol">(</span>obj<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span>, keys<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">PropertyKey</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/AlexRogalskiy/github-action-json-fields/blob/d46beb2/src/utils.ts#L60">src/utils.ts:60</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-type-parameters-title">Type parameters</h4>
+							<ul class="tsd-type-parameters">
+								<li>
+									<h4>T</h4>
+								</li>
+							</ul>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>obj: <span class="tsd-signature-type">T</span></h5>
+								</li>
+								<li>
+									<h5>keys: <span class="tsd-signature-type">PropertyKey</span><span class="tsd-signature-symbol">[]</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -163,16 +199,64 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/AlexRogalskiy/github-action-json-fields/blob/1b8caa5/src/utils.ts#L15">utils.ts:15</a></li>
+									<li>Defined in <a href="https://github.com/AlexRogalskiy/github-action-json-fields/blob/d46beb2/src/utils.ts#L34">src/utils.ts:34</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Returns a boolean indicating whether the object has the specified property.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>obj: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>An object.</p>
+									</div>
 								</li>
 								<li>
 									<h5>prop: <span class="tsd-signature-type">PropertyKey</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>A property name.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+					<a name="hasproperty2" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> has<wbr>Property2</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
+						<li class="tsd-signature tsd-kind-icon">has<wbr>Property2<span class="tsd-signature-symbol">(</span>obj<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, prop<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">PropertyKey</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/AlexRogalskiy/github-action-json-fields/blob/d46beb2/src/utils.ts#L22">src/utils.ts:22</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Returns a boolean indicating whether the object has the specified property.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>obj: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>An object.</p>
+									</div>
+								</li>
+								<li>
+									<h5>prop: <span class="tsd-signature-type">PropertyKey</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>A property name.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
@@ -189,7 +273,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/AlexRogalskiy/github-action-json-fields/blob/1b8caa5/src/utils.ts#L11">utils.ts:11</a></li>
+									<li>Defined in <a href="https://github.com/AlexRogalskiy/github-action-json-fields/blob/d46beb2/src/utils.ts#L12">src/utils.ts:12</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -206,6 +290,29 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+					<a name="isblankstring" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> is<wbr>Blank<wbr>String</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
+						<li class="tsd-signature tsd-kind-icon">is<wbr>Blank<wbr>String<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/AlexRogalskiy/github-action-json-fields/blob/d46beb2/src/utils.ts#L56">src/utils.ts:56</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>value: <span class="tsd-signature-type">string</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
 					<a name="serialize" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagConst">Const</span> serialize</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
@@ -215,7 +322,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/AlexRogalskiy/github-action-json-fields/blob/1b8caa5/src/utils.ts#L22">utils.ts:22</a></li>
+									<li>Defined in <a href="https://github.com/AlexRogalskiy/github-action-json-fields/blob/d46beb2/src/utils.ts#L42">src/utils.ts:42</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -255,6 +362,41 @@
 						</li>
 					</ul>
 				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
+					<a name="setdatabykeys" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> set<wbr>Data<wbr>ByKeys</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
+						<li class="tsd-signature tsd-kind-icon">set<wbr>Data<wbr>ByKeys&lt;T&gt;<span class="tsd-signature-symbol">(</span>obj<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span>, value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, keys<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">PropertyKey</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/AlexRogalskiy/github-action-json-fields/blob/d46beb2/src/utils.ts#L68">src/utils.ts:68</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-type-parameters-title">Type parameters</h4>
+							<ul class="tsd-type-parameters">
+								<li>
+									<h4>T</h4>
+								</li>
+							</ul>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>obj: <span class="tsd-signature-type">T</span></h5>
+								</li>
+								<li>
+									<h5>value: <span class="tsd-signature-type">any</span></h5>
+								</li>
+								<li>
+									<h5>keys: <span class="tsd-signature-type">PropertyKey</span><span class="tsd-signature-symbol">[]</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
 					<a name="tostring" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagConst">Const</span> to<wbr>String</h3>
@@ -265,7 +407,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/AlexRogalskiy/github-action-json-fields/blob/1b8caa5/src/utils.ts#L3">utils.ts:3</a></li>
+									<li>Defined in <a href="https://github.com/AlexRogalskiy/github-action-json-fields/blob/d46beb2/src/utils.ts#L4">src/utils.ts:4</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -284,44 +426,59 @@
 			<nav class="tsd-navigation primary">
 				<ul>
 					<li class=" ">
-						<a href="../modules.html">Exports</a>
+						<a href="../modules.html">Modules</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="comparators.html">comparators</a>
+						<a href="src.html">src</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="errors.html">errors</a>
+						<a href="src_comparators.html">src/comparators</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="index.html">index</a>
+						<a href="src_errors.html">src/errors</a>
 					</li>
 					<li class="current tsd-kind-module">
-						<a href="utils.html">utils</a>
+						<a href="src_utils.html">src/utils</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="validators.html">validators</a>
+						<a href="src_validators.html">src/validators</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="typings_types.html">typings/types</a>
 					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 					<li class=" tsd-kind-function tsd-parent-kind-module">
-						<a href="utils.html#deserialize" class="tsd-kind-icon">deserialize</a>
+						<a href="src_utils.html#deserialize" class="tsd-kind-icon">deserialize</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module">
-						<a href="utils.html#ensuredirexists" class="tsd-kind-icon">ensure<wbr>Dir<wbr>Exists</a>
+						<a href="src_utils.html#ensuredirexists" class="tsd-kind-icon">ensure<wbr>Dir<wbr>Exists</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
+						<a href="src_utils.html#getdatabykeys" class="tsd-kind-icon">get<wbr>Data<wbr>ByKeys</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module">
-						<a href="utils.html#hasproperty" class="tsd-kind-icon">has<wbr>Property</a>
+						<a href="src_utils.html#hasproperty" class="tsd-kind-icon">has<wbr>Property</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module">
-						<a href="utils.html#hasprototypeproperty" class="tsd-kind-icon">has<wbr>Prototype<wbr>Property</a>
+						<a href="src_utils.html#hasproperty2" class="tsd-kind-icon">has<wbr>Property2</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module">
-						<a href="utils.html#serialize" class="tsd-kind-icon">serialize</a>
+						<a href="src_utils.html#hasprototypeproperty" class="tsd-kind-icon">has<wbr>Prototype<wbr>Property</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module">
-						<a href="utils.html#tostring" class="tsd-kind-icon">to<wbr>String</a>
+						<a href="src_utils.html#isblankstring" class="tsd-kind-icon">is<wbr>Blank<wbr>String</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module">
+						<a href="src_utils.html#serialize" class="tsd-kind-icon">serialize</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
+						<a href="src_utils.html#setdatabykeys" class="tsd-kind-icon">set<wbr>Data<wbr>ByKeys</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module">
+						<a href="src_utils.html#tostring" class="tsd-kind-icon">to<wbr>String</a>
 					</li>
 				</ul>
 			</nav>

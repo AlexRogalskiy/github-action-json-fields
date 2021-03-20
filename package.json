@@ -15,7 +15,7 @@
         "lint": "eslint --cache --fix --quiet --format codeframe --ext js,ts .",
         "lint:staged": "lint-staged --no-stash --allow-empty",
         "pretty": "pretty-quick --staged --pattern '!test/tests/lint/**'",
-        "docs": "typedoc --out docs/ts src --excludeExternals --tsconfig tsconfig.json",
+        "docs": "typedoc",
         "semantic-release": "semantic-release",
         "commit": "git-cz",
         "postpublish": "npm run clean",
@@ -27,12 +27,12 @@
         "reinstall": "del-cli ./node_modules ./package-lock.json ./yarn.lock",
         "version": "git add -A dist",
         "postversion": "git push && git push --tags",
-        "test:folio": "folio tests/spec/",
+        "test:folio": "env-cmd --silent -e test folio tests/spec/",
         "test": "env-cmd --silent -e test jest",
-        "test:coverage": "jest --collectCoverage",
-        "test:watch": "jest --watch",
+        "test:coverage": "env-cmd --silent -e test jest --collectCoverage --detectOpenHandles",
+        "test:watch": "env-cmd --silent -e test jest --watch",
         "test:all": "npm run test && npm run test:folio",
-        "all": "npm run format && npm run lint && npm run build"
+        "all": "npm run format && npm run pretty && npm run lint && npm run build"
     },
     "dependencies": {
         "@actions/core": "^1.2.6",

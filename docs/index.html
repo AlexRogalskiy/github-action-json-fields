@@ -68,7 +68,7 @@
 					<img src="https://img.shields.io/endpoint.svg?url=https://gh.mergify.io/badges/AlexRogalskiy/github-action-json-fields" alt="Mergify Status">
 				<a href="https://houndci.com"><img src="https://img.shields.io/badge/Reviewed_by-Hound-8E64B0.svg" alt="Reviewed by Hound"></a></p>
 				<!-- [![Become a sponsor](https://img.shields.io/badge/sponsor-AlexRogalskiy-181717.svg?logo=github)](https://github.com/sponsors/AlexRogalskiy)-->
-				<p><a href="https://deepscan.io/dashboard#view=project&amp;tid=11946&amp;pid=15929&amp;bid=326929"><img src="https://deepscan.io/api/teams/11946/projects/15929/branches/326929/badge/grade.svg" alt="DeepScan grade"></a>
+				<p><a href="https://deepscan.io/dashboard#view=project&amp;tid=11946&amp;pid=16314&amp;bid=347248"><img src="https://deepscan.io/api/teams/11946/projects/16314/branches/347248/badge/grade.svg" alt="DeepScan grade"></a>
 					<img src="https://img.shields.io/github/v/tag/AlexRogalskiy/github-action-json-fields" alt="GitHub tag (latest by date)">
 					<img src="https://img.shields.io/github/release-date/AlexRogalskiy/github-action-json-fields" alt="GitHub Release Date">
 					<img src="https://tokei.rs/b1/github/AlexRogalskiy/github-action-json-fields?category=lines" alt="Lines of code">
@@ -101,20 +101,21 @@
 							<li><a href="#table-of-contents"><em>Table of contents</em></a></li>
 							<li><a href="#description"><em>Description</em></a></li>
 							<li><a href="#inputs"><em>Inputs</em></a><ul>
-									<li><a href="#jsonmode">jsonMode</a><ul>
+									<li><a href="#sourcedata">sourceData</a></li>
+									<li><a href="#mode">mode</a><ul>
 											<li><a href="#unique">unique</a></li>
 											<li><a href="#duplicate">duplicate</a></li>
 										</ul>
 									</li>
+									<li><a href="#jsonpath">jsonPath</a></li>
+									<li><a href="#jsonfields">jsonFields</a></li>
 									<li><a href="#sourcefile">sourceFile</a></li>
 									<li><a href="#targetpath">targetPath</a></li>
-									<li><a href="#destfile">destFile</a></li>
-									<li><a href="#targetproperty">targetProperty</a></li>
-									<li><a href="#fields">fields</a></li>
+									<li><a href="#targetfile">targetFile</a></li>
 								</ul>
 							</li>
 							<li><a href="#outputs"><em>Outputs</em></a><ul>
-									<li><a href="#status">status</a><ul>
+									<li><a href="#changed">changed</a><ul>
 											<li><a href="#true">true</a></li>
 											<li><a href="#false">false</a></li>
 										</ul>
@@ -154,53 +155,77 @@
 				<a href="#inputs" id="inputs" style="color: inherit; text-decoration: none;">
 					<h2><em>Inputs</em></h2>
 				</a>
-				<a href="#jsonmode" id="jsonmode" style="color: inherit; text-decoration: none;">
-					<h3><code>jsonMode</code></h3>
+				<a href="#sourcedata" id="sourcedata" style="color: inherit; text-decoration: none;">
+					<h3><code>sourceData</code></h3>
+				</a>
+				<p><strong>Optional</strong> JSON data source file with following action parameters (just for actual example):</p>
+				<pre><code class="language-json"><span style="color: #D4D4D4">[</span>
+<span style="color: #D4D4D4">    {</span>
+<span style="color: #D4D4D4">        </span><span style="color: #9CDCFE">&quot;sourceFile&quot;</span><span style="color: #D4D4D4">: </span><span style="color: #CE9178">&quot;./data/african_proverbs.json&quot;</span><span style="color: #D4D4D4">,</span>
+<span style="color: #D4D4D4">        </span><span style="color: #9CDCFE">&quot;targetPath&quot;</span><span style="color: #D4D4D4">: </span><span style="color: #CE9178">&quot;./data&quot;</span><span style="color: #D4D4D4">,</span>
+<span style="color: #D4D4D4">        </span><span style="color: #9CDCFE">&quot;targetFile&quot;</span><span style="color: #D4D4D4">: </span><span style="color: #CE9178">&quot;african_proverbs_unique.json&quot;</span><span style="color: #D4D4D4">,</span>
+<span style="color: #D4D4D4">        </span><span style="color: #9CDCFE">&quot;mode&quot;</span><span style="color: #D4D4D4">: </span><span style="color: #CE9178">&quot;unique&quot;</span><span style="color: #D4D4D4">,</span>
+<span style="color: #D4D4D4">        </span><span style="color: #9CDCFE">&quot;jsonPath&quot;</span><span style="color: #D4D4D4">: </span><span style="color: #CE9178">&quot;$.african[*]&quot;</span><span style="color: #D4D4D4">,</span>
+<span style="color: #D4D4D4">        </span><span style="color: #9CDCFE">&quot;jsonFields&quot;</span><span style="color: #D4D4D4">: </span><span style="color: #CE9178">&quot;text&quot;</span>
+<span style="color: #D4D4D4">    },</span>
+<span style="color: #D4D4D4">    {</span>
+<span style="color: #D4D4D4">        </span><span style="color: #9CDCFE">&quot;sourceFile&quot;</span><span style="color: #D4D4D4">: </span><span style="color: #CE9178">&quot;./data/gypsy_proverbs.json&quot;</span><span style="color: #D4D4D4">,</span>
+<span style="color: #D4D4D4">        </span><span style="color: #9CDCFE">&quot;targetPath&quot;</span><span style="color: #D4D4D4">: </span><span style="color: #CE9178">&quot;./data&quot;</span><span style="color: #D4D4D4">,</span>
+<span style="color: #D4D4D4">        </span><span style="color: #9CDCFE">&quot;targetFile&quot;</span><span style="color: #D4D4D4">: </span><span style="color: #CE9178">&quot;gypsy_proverbs_unique.json&quot;</span><span style="color: #D4D4D4">,</span>
+<span style="color: #D4D4D4">        </span><span style="color: #9CDCFE">&quot;mode&quot;</span><span style="color: #D4D4D4">: </span><span style="color: #CE9178">&quot;unique&quot;</span><span style="color: #D4D4D4">,</span>
+<span style="color: #D4D4D4">        </span><span style="color: #9CDCFE">&quot;jsonPath&quot;</span><span style="color: #D4D4D4">: </span><span style="color: #CE9178">&quot;$.gypsy[*]&quot;</span><span style="color: #D4D4D4">,</span>
+<span style="color: #D4D4D4">        </span><span style="color: #9CDCFE">&quot;jsonFields&quot;</span><span style="color: #D4D4D4">: </span><span style="color: #CE9178">&quot;text&quot;</span>
+<span style="color: #D4D4D4">    }</span>
+<span style="color: #D4D4D4">]</span>
+</code></pre>
+				<a href="#mode" id="mode" style="color: inherit; text-decoration: none;">
+					<h3><code>mode</code></h3>
 				</a>
 				<p><strong>Required</strong> JSON operation mode</p>
 				<a href="#unique" id="unique" style="color: inherit; text-decoration: none;">
 					<h4><code>unique</code></h4>
 				</a>
-				<p>Only unique fields to be filtered</p>
+				<p>Only unique fields must be processed</p>
 				<a href="#duplicate" id="duplicate" style="color: inherit; text-decoration: none;">
 					<h4><code>duplicate</code></h4>
 				</a>
-				<p>Only duplicate fields to be filtered</p>
+				<p>Only duplicate fields must be processed</p>
+				<a href="#jsonpath" id="jsonpath" style="color: inherit; text-decoration: none;">
+					<h3><code>jsonPath</code></h3>
+				</a>
+				<p><strong>Required</strong> String representing JSON query path (<strong>$.property1.property2</strong>)</p>
+				<p>More information on JSON path queries can be found at <a href="https://www.npmjs.com/package/jsonpath">jsonpath</a></p>
+				<a href="#jsonfields" id="jsonfields" style="color: inherit; text-decoration: none;">
+					<h3><code>jsonFields</code></h3>
+				</a>
+				<p><strong>Optional</strong> String representing comma-separated list of fields to process (<strong>field1,field2,...,fieldN</strong>)</p>
 				<a href="#sourcefile" id="sourcefile" style="color: inherit; text-decoration: none;">
 					<h3><code>sourceFile</code></h3>
 				</a>
-				<p><strong>Required</strong> JSON source file to operate by</p>
+				<p><strong>Required</strong> Source JSON file to process</p>
 				<a href="#targetpath" id="targetpath" style="color: inherit; text-decoration: none;">
 					<h3><code>targetPath</code></h3>
 				</a>
-				<p><strong>Required</strong> Target path to store filtered JSON file</p>
-				<a href="#destfile" id="destfile" style="color: inherit; text-decoration: none;">
-					<h3><code>destFile</code></h3>
+				<p><strong>Required</strong> Target path to store processed JSON file</p>
+				<a href="#targetfile" id="targetfile" style="color: inherit; text-decoration: none;">
+					<h3><code>targetFile</code></h3>
 				</a>
-				<p><strong>Required</strong> JSON destination file name</p>
-				<a href="#targetproperty" id="targetproperty" style="color: inherit; text-decoration: none;">
-					<h3><code>targetProperty</code></h3>
-				</a>
-				<p><strong>Required</strong> String representing slash-separated list of properties hierarchy to operate by (<strong>property1/property2/.../propertyN</strong>)</p>
-				<a href="#fields" id="fields" style="color: inherit; text-decoration: none;">
-					<h3><code>fields</code></h3>
-				</a>
-				<p><strong>Optional</strong> String representing comma-separated list of fields to operate by (<strong>field1,field2,...,fieldN</strong>)</p>
+				<p><strong>Optional</strong> Target JSON destination file name (default <strong>sourceFile</strong>)</p>
 				<a href="#outputs" id="outputs" style="color: inherit; text-decoration: none;">
 					<h2><em>Outputs</em></h2>
 				</a>
-				<a href="#status" id="status" style="color: inherit; text-decoration: none;">
-					<h3><code>status</code></h3>
+				<a href="#changed" id="changed" style="color: inherit; text-decoration: none;">
+					<h3><code>changed</code></h3>
 				</a>
-				<p>JSON operation status</p>
+				<p>JSON processing operation status</p>
 				<a href="#true" id="true" style="color: inherit; text-decoration: none;">
 					<h4><code>true</code></h4>
 				</a>
-				<p>When file successfully processed and stored to destination folder</p>
+				<p>When JSON source file successfully processed and results stored to destination folder</p>
 				<a href="#false" id="false" style="color: inherit; text-decoration: none;">
 					<h4><code>false</code></h4>
 				</a>
-				<p>When errors occurred while processing source file</p>
+				<p>When error occurred while processing JSON source file</p>
 				<a href="#examples" id="examples" style="color: inherit; text-decoration: none;">
 					<h2><em>Examples</em></h2>
 				</a>
@@ -283,22 +308,25 @@
 			<nav class="tsd-navigation primary">
 				<ul>
 					<li class=" ">
-						<a href="modules.html">Exports</a>
+						<a href="modules.html">Modules</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/comparators.html">comparators</a>
+						<a href="modules/src.html">src</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/errors.html">errors</a>
+						<a href="modules/src_comparators.html">src/comparators</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/index.html">index</a>
+						<a href="modules/src_errors.html">src/errors</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/utils.html">utils</a>
+						<a href="modules/src_utils.html">src/utils</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/validators.html">validators</a>
+						<a href="modules/src_validators.html">src/validators</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/typings_types.html">typings/types</a>
 					</li>
 				</ul>
 			</nav>
