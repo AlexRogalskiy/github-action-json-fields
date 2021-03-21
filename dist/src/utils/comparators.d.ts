@@ -1,4 +1,4 @@
-import { Comparator, ComparatorMode, PropertyComparator } from '../typings/standard-types';
+import { Comparator, ComparatorMode, PropertyComparator } from '../../typings/standard-types';
 /**
  * @public
  * @param {String} a Input value.
