@@ -71,7 +71,10 @@
 							<h3>Functions</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="src_validators.html#gettype" class="tsd-kind-icon">get<wbr>Type</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="src_validators.html#hasproperty" class="tsd-kind-icon">has<wbr>Property</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="src_validators.html#hasproperty2" class="tsd-kind-icon">has<wbr>Property2</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="src_validators.html#isarray" class="tsd-kind-icon">is<wbr>Array</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="src_validators.html#isblankstring" class="tsd-kind-icon">is<wbr>Blank<wbr>String</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="src_validators.html#isfunction" class="tsd-kind-icon">is<wbr>Function</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="src_validators.html#isnotnull" class="tsd-kind-icon">is<wbr>Not<wbr>Null</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="src_validators.html#isnotundefined" class="tsd-kind-icon">is<wbr>Not<wbr>Undefined</a></li>
@@ -98,7 +101,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/AlexRogalskiy/github-action-json-fields/blob/d46beb2/src/validators.ts#L1">src/validators.ts:1</a></li>
+									<li>Defined in <a href="https://github.com/AlexRogalskiy/github-action-json-fields/blob/2e40217/src/validators.ts#L1">src/validators.ts:1</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -112,6 +115,80 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+					<a name="hasproperty" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> has<wbr>Property</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
+						<li class="tsd-signature tsd-kind-icon">has<wbr>Property<span class="tsd-signature-symbol">(</span>obj<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, prop<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">PropertyKey</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/AlexRogalskiy/github-action-json-fields/blob/2e40217/src/validators.ts#L55">src/validators.ts:55</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Returns a boolean indicating whether the object has the specified property.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>obj: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>An object.</p>
+									</div>
+								</li>
+								<li>
+									<h5>prop: <span class="tsd-signature-type">PropertyKey</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>A property name.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+					<a name="hasproperty2" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> has<wbr>Property2</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
+						<li class="tsd-signature tsd-kind-icon">has<wbr>Property2<span class="tsd-signature-symbol">(</span>obj<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, prop<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">PropertyKey</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/AlexRogalskiy/github-action-json-fields/blob/2e40217/src/validators.ts#L67">src/validators.ts:67</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Returns a boolean indicating whether the object has the specified property.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>obj: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>An object.</p>
+									</div>
+								</li>
+								<li>
+									<h5>prop: <span class="tsd-signature-type">PropertyKey</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>A property name.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
 					<a name="isarray" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagConst">Const</span> is<wbr>Array</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
@@ -121,13 +198,36 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/AlexRogalskiy/github-action-json-fields/blob/d46beb2/src/validators.ts#L32">src/validators.ts:32</a></li>
+									<li>Defined in <a href="https://github.com/AlexRogalskiy/github-action-json-fields/blob/2e40217/src/validators.ts#L32">src/validators.ts:32</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>value: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+					<a name="isblankstring" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> is<wbr>Blank<wbr>String</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
+						<li class="tsd-signature tsd-kind-icon">is<wbr>Blank<wbr>String<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/AlexRogalskiy/github-action-json-fields/blob/2e40217/src/validators.ts#L74">src/validators.ts:74</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>value: <span class="tsd-signature-type">string</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
@@ -144,7 +244,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/AlexRogalskiy/github-action-json-fields/blob/d46beb2/src/validators.ts#L41">src/validators.ts:41</a></li>
+									<li>Defined in <a href="https://github.com/AlexRogalskiy/github-action-json-fields/blob/2e40217/src/validators.ts#L41">src/validators.ts:41</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -167,7 +267,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/AlexRogalskiy/github-action-json-fields/blob/d46beb2/src/validators.ts#L20">src/validators.ts:20</a></li>
+									<li>Defined in <a href="https://github.com/AlexRogalskiy/github-action-json-fields/blob/2e40217/src/validators.ts#L20">src/validators.ts:20</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -190,7 +290,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/AlexRogalskiy/github-action-json-fields/blob/d46beb2/src/validators.ts#L24">src/validators.ts:24</a></li>
+									<li>Defined in <a href="https://github.com/AlexRogalskiy/github-action-json-fields/blob/2e40217/src/validators.ts#L24">src/validators.ts:24</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -213,7 +313,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/AlexRogalskiy/github-action-json-fields/blob/d46beb2/src/validators.ts#L8">src/validators.ts:8</a></li>
+									<li>Defined in <a href="https://github.com/AlexRogalskiy/github-action-json-fields/blob/2e40217/src/validators.ts#L8">src/validators.ts:8</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -236,7 +336,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/AlexRogalskiy/github-action-json-fields/blob/d46beb2/src/validators.ts#L16">src/validators.ts:16</a></li>
+									<li>Defined in <a href="https://github.com/AlexRogalskiy/github-action-json-fields/blob/2e40217/src/validators.ts#L16">src/validators.ts:16</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -259,7 +359,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/AlexRogalskiy/github-action-json-fields/blob/d46beb2/src/validators.ts#L45">src/validators.ts:45</a></li>
+									<li>Defined in <a href="https://github.com/AlexRogalskiy/github-action-json-fields/blob/2e40217/src/validators.ts#L45">src/validators.ts:45</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -282,7 +382,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/AlexRogalskiy/github-action-json-fields/blob/d46beb2/src/validators.ts#L37">src/validators.ts:37</a></li>
+									<li>Defined in <a href="https://github.com/AlexRogalskiy/github-action-json-fields/blob/2e40217/src/validators.ts#L37">src/validators.ts:37</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -305,7 +405,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/AlexRogalskiy/github-action-json-fields/blob/d46beb2/src/validators.ts#L28">src/validators.ts:28</a></li>
+									<li>Defined in <a href="https://github.com/AlexRogalskiy/github-action-json-fields/blob/2e40217/src/validators.ts#L28">src/validators.ts:28</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -328,7 +428,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/AlexRogalskiy/github-action-json-fields/blob/d46beb2/src/validators.ts#L12">src/validators.ts:12</a></li>
+									<li>Defined in <a href="https://github.com/AlexRogalskiy/github-action-json-fields/blob/2e40217/src/validators.ts#L12">src/validators.ts:12</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -359,10 +459,22 @@
 						<a href="src_errors.html">src/errors</a>
 					</li>
 					<li class=" tsd-kind-module">
+						<a href="src_files.html">src/files</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="src_serializers.html">src/serializers</a>
+					</li>
+					<li class=" tsd-kind-module">
 						<a href="src_utils.html">src/utils</a>
 					</li>
 					<li class="current tsd-kind-module">
 						<a href="src_validators.html">src/validators</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="typings_enum_types.html">typings/enum-<wbr>types</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="typings_standard_types.html">typings/standard-<wbr>types</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="typings_types.html">typings/types</a>
@@ -375,7 +487,16 @@
 						<a href="src_validators.html#gettype" class="tsd-kind-icon">get<wbr>Type</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module">
+						<a href="src_validators.html#hasproperty" class="tsd-kind-icon">has<wbr>Property</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module">
+						<a href="src_validators.html#hasproperty2" class="tsd-kind-icon">has<wbr>Property2</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module">
 						<a href="src_validators.html#isarray" class="tsd-kind-icon">is<wbr>Array</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module">
+						<a href="src_validators.html#isblankstring" class="tsd-kind-icon">is<wbr>Blank<wbr>String</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module">
 						<a href="src_validators.html#isfunction" class="tsd-kind-icon">is<wbr>Function</a>

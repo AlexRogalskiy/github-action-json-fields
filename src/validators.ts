@@ -45,3 +45,32 @@ export const isFunction = (value: any): boolean => {
 export const isNumber = (value: any): boolean => {
     return isNotNull(value) && (typeof value === 'number' || getType(value) === 'number') && isFinite(value)
 }
+
+/**
+ * Returns a boolean indicating whether the object has the specified property.
+ * @param {Object} obj An object.
+ * @param {String} prop A property name.
+ * @returns {Boolean}
+ */
+export const hasProperty = (obj: any, prop: PropertyKey): boolean => {
+    if (isNullOrUndefined(obj)) return false
+
+    return isFunction(obj.hasOwnProperty) ? obj.hasOwnProperty(prop) : prop in obj
+}
+
+/**
+ * Returns a boolean indicating whether the object has the specified property.
+ * @param {Object} obj An object.
+ * @param {String} prop A property name.
+ * @returns {Boolean}
+ */
+export const hasProperty2 = (obj: any, prop: PropertyKey): boolean => {
+    const proto = obj.__proto__ || obj.constructor.prototype
+
+    //return !obj.hasOwnProperty(prop) && prop in obj
+    return prop in obj || prop in proto || proto[prop] === obj[prop]
+}
+
+export const isBlankString = (value: string): boolean => {
+    return !value || /^\s*$/.test(value)
+}

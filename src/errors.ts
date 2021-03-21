@@ -1,4 +1,4 @@
-import { hasProperty } from './utils'
+import { hasProperty } from './validators'
 
 /**
  * Error type enumeration

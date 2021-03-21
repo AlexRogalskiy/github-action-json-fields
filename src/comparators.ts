@@ -1,8 +1,7 @@
 import { Comparator, ComparatorMode, Optional, PropertyComparator } from '../typings/standard-types'
 
-import { hasProperty } from './utils'
 import { valueError } from './errors'
-import { isArray, isFunction, isNullOrUndefined, isObject, isString } from './validators'
+import { hasProperty, isArray, isFunction, isNullOrUndefined, isObject, isString } from './validators'
 
 /**
  * @public

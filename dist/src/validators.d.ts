@@ -9,4 +9,19 @@ export declare const isArray: (value: any) => boolean;
 export declare const isObject: (value: any) => boolean;
 export declare const isFunction: (value: any) => boolean;
 export declare const isNumber: (value: any) => boolean;
+/**
+ * Returns a boolean indicating whether the object has the specified property.
+ * @param {Object} obj An object.
+ * @param {String} prop A property name.
+ * @returns {Boolean}
+ */
+export declare const hasProperty: (obj: any, prop: PropertyKey) => boolean;
+/**
+ * Returns a boolean indicating whether the object has the specified property.
+ * @param {Object} obj An object.
+ * @param {String} prop A property name.
+ * @returns {Boolean}
+ */
+export declare const hasProperty2: (obj: any, prop: PropertyKey) => boolean;
+export declare const isBlankString: (value: string) => boolean;
 //# sourceMappingURL=validators.d.ts.map

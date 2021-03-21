@@ -1,16 +1,15 @@
 import * as core from '@actions/core'
 import * as jp from 'jsonpath'
-import { readFileSync, writeFile } from 'fs'
-import { basename, join } from 'path'
+import { basename } from 'path'
 
 import { ConfigOptions } from '../typings/types'
 import { JsonMode } from '../typings/enum-types'
 import { BiPredicate, Comparator } from '../typings/standard-types'
 
-import { deserialize, ensureDirExists, isBlankString, serialize } from './utils'
-import { getType, isArray } from './validators'
+import { getType, isArray, isBlankString } from './validators'
 import { valueError } from './errors'
 import { compareBy, compareByPropertyKey, compareIgnoreCase } from './comparators'
+import { getDataAsJson, storeDataAsJson } from './files'
 
 const getFilter = <T>(jsonMode: JsonMode): BiPredicate<T> => {
     return (a: T, b: T) => (jsonMode === JsonMode.unique ? a === b : a !== b)
@@ -24,12 +23,6 @@ const getComparator = (fields: PropertyKey[]): Comparator<any> => {
     return compareBy(...comparators)
 }
 
-const getJsonData = (fileName: string): ConfigOptions[] => {
-    const fileData = readFileSync(fileName)
-
-    return deserialize(fileData.toString())
-}
-
 const processSourceFile = async (
     fileName: string,
     jsonMode: JsonMode,
@@ -38,7 +31,7 @@ const processSourceFile = async (
 ): Promise<any> => {
     const filterMode = getFilter(jsonMode)
     const comparator = getComparator(fields)
-    const jsonData = getJsonData(fileName)
+    const jsonData = getDataAsJson(fileName)
 
     const propertyData = jp.query(jsonData, jsonPath)
 
@@ -61,22 +54,6 @@ const processSourceFile = async (
     return jsonData
 }
 
-const storeJsonData = async (filePath: string, fileName: string, data: any): Promise<boolean> => {
-    ensureDirExists(filePath)
-
-    const targetPath = join(filePath, fileName)
-
-    core.info(`Storing JSON data to target file: ${targetPath}`)
-
-    writeFile(targetPath, serialize(data), err => {
-        if (err) {
-            throw err
-        }
-    })
-
-    return true
-}
-
 const processConfigOptions = async (options: Required<ConfigOptions>): Promise<boolean> => {
     core.info(
         `Processing source JSON file: ${options.sourceFile} with mode: ${options.jsonMode}, path: ${options.jsonPath}, fields: ${options.jsonFields}`
@@ -88,7 +65,7 @@ const processConfigOptions = async (options: Required<ConfigOptions>): Promise<b
         options.jsonPath,
         options.jsonFields
     )
-    return await storeJsonData(options.targetPath, options.targetFile, jsonData)
+    return await storeDataAsJson(options.targetPath, options.targetFile, jsonData)
 }
 
 const getConfigOptions = (options: any = {}): Required<ConfigOptions> => {
@@ -128,7 +105,7 @@ export default async function run(): Promise<void> {
         const sourceData = core.getInput('sourceData')
 
         if (!isBlankString(sourceData)) {
-            const options = getJsonData(sourceData)
+            const options = getDataAsJson(sourceData)
             await processData(...options)
         } else {
             await processData({})
