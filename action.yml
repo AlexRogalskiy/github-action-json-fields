@@ -35,5 +35,5 @@ runs:
 
 # Ref: https://haya14busa.github.io/github-action-brandings/
 branding:
-  icon: 'file-text'
+  icon: 'filter'
   color: 'white'
