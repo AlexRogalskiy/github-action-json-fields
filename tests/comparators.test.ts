@@ -13,7 +13,7 @@ import {
     compareByPropertyOrder,
     compareIgnoreCase,
     normalizeAndCompare,
-} from '../src/comparators'
+} from '../src/utils/comparators'
 
 export namespace Comparators_Test {
     beforeAll(() => {

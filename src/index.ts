@@ -6,10 +6,10 @@ import { ConfigOptions } from '../typings/types'
 import { JsonMode } from '../typings/enum-types'
 import { BiPredicate, Comparator } from '../typings/standard-types'
 
-import { getType, isArray, isBlankString } from './validators'
-import { valueError } from './errors'
-import { compareBy, compareByPropertyKey, compareIgnoreCase } from './comparators'
-import { getDataAsJson, storeDataAsJson } from './files'
+import { getType, isArray, isBlankString } from './utils/validators'
+import { valueError } from './errors/errors'
+import { compareBy, compareByPropertyKey, compareIgnoreCase } from './utils/comparators'
+import { getDataAsJson, storeDataAsJson } from './utils/files'
 
 const getFilter = <T>(jsonMode: JsonMode): BiPredicate<T> => {
     return (a: T, b: T) => (jsonMode === JsonMode.unique ? a === b : a !== b)

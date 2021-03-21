@@ -2,7 +2,7 @@ import * as core from '@actions/core'
 import { join } from 'path'
 import { existsSync, MakeDirectoryOptions, mkdirSync, readFileSync, writeFile } from 'fs'
 
-import { ConfigOptions } from '../typings/types'
+import { ConfigOptions } from '../../typings/types'
 
 import { deserialize, serialize } from './serializers'
 
