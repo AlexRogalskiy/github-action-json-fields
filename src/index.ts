@@ -6,8 +6,8 @@ import { ConfigOptions } from '../typings/types'
 import { JsonMode } from '../typings/enum-types'
 import { BiPredicate, Comparator } from '../typings/standard-types'
 
-import { getType, isArray, isBlankString } from './utils/validators'
 import { valueError } from './errors/errors'
+import { getType, isArray, isValidFile } from './utils/validators'
 import { compareBy, compareByPropertyKey, compareIgnoreCase } from './utils/comparators'
 import { getDataAsJson, storeDataAsJson } from './utils/files'
 
@@ -65,6 +65,7 @@ const processConfigOptions = async (options: Required<ConfigOptions>): Promise<b
         options.jsonPath,
         options.jsonFields
     )
+
     return await storeDataAsJson(options.targetPath, options.targetFile, jsonData)
 }
 
@@ -104,15 +105,15 @@ export default async function run(): Promise<void> {
     try {
         const sourceData = core.getInput('sourceData')
 
-        if (!isBlankString(sourceData)) {
+        if (isValidFile(sourceData)) {
             const options = getDataAsJson(sourceData)
             await processData(...options)
         } else {
             await processData({})
         }
     } catch (e) {
-        core.setFailed(`Cannot process JSON data, message: ${e.message}`)
+        core.setFailed(`Cannot process input JSON data, message: ${e.message}`)
     }
 }
 
-run()
+void run()

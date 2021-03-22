@@ -1,3 +1,7 @@
+import { Optional } from '../../typings/standard-types'
+
+import { checkFileExists } from './files'
+
 export const getType = (obj: any): string => {
     return {}.toString
         .call(obj)
@@ -52,9 +56,10 @@ export const isNumber = (value: any): boolean => {
  * @param {String} prop A property name.
  * @returns {Boolean}
  */
-export const hasProperty = (obj: any, prop: PropertyKey): boolean => {
+export const hasProperty = (obj: any, prop: Optional<PropertyKey>): boolean => {
     if (isNullOrUndefined(obj)) return false
-
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
     return isFunction(obj.hasOwnProperty) ? obj.hasOwnProperty(prop) : prop in obj
 }
 
@@ -73,4 +78,8 @@ export const hasProperty2 = (obj: any, prop: PropertyKey): boolean => {
 
 export const isBlankString = (value: string): boolean => {
     return !value || /^\s*$/.test(value)
+}
+
+export const isValidFile = (fileName: string, extension = '.json'): boolean => {
+    return !isBlankString(fileName) && fileName.endsWith(extension) && checkFileExists(fileName)
 }

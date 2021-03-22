@@ -1,6 +1,14 @@
 import * as core from '@actions/core'
 import { join } from 'path'
-import { existsSync, MakeDirectoryOptions, mkdirSync, readFileSync, writeFile } from 'fs'
+import {
+    accessSync,
+    constants,
+    existsSync,
+    MakeDirectoryOptions,
+    mkdirSync,
+    readFileSync,
+    writeFile,
+} from 'fs'
 
 import { ConfigOptions } from '../../typings/types'
 
@@ -23,11 +31,21 @@ export const storeDataAsJson = async (filePath: string, fileName: string, data: 
 
     core.info(`Storing JSON data to target file: ${targetPath}`)
 
-    writeFile(targetPath, serialize(data), err => {
+    writeFile(targetPath, serialize(data), 'utf-8', err => {
         if (err) {
             throw err
         }
     })
 
     return true
+}
+
+export const checkFileExists = (fileName: string, mode = constants.F_OK | constants.R_OK): boolean => {
+    try {
+        accessSync(fileName, mode)
+
+        return true
+    } catch (err) {
+        return false
+    }
 }

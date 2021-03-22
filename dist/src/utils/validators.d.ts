@@ -1,3 +1,4 @@
+import { Optional } from '../../typings/standard-types';
 export declare const getType: (obj: any) => string;
 export declare const isNull: (value: any) => boolean;
 export declare const isUndefined: (value: any) => boolean;
@@ -15,7 +16,7 @@ export declare const isNumber: (value: any) => boolean;
  * @param {String} prop A property name.
  * @returns {Boolean}
  */
-export declare const hasProperty: (obj: any, prop: PropertyKey) => boolean;
+export declare const hasProperty: (obj: any, prop: Optional<PropertyKey>) => boolean;
 /**
  * Returns a boolean indicating whether the object has the specified property.
  * @param {Object} obj An object.
@@ -24,4 +25,5 @@ export declare const hasProperty: (obj: any, prop: PropertyKey) => boolean;
  */
 export declare const hasProperty2: (obj: any, prop: PropertyKey) => boolean;
 export declare const isBlankString: (value: string) => boolean;
+export declare const isValidFile: (fileName: string, extension?: string) => boolean;
 //# sourceMappingURL=validators.d.ts.map
