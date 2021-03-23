@@ -8,8 +8,7 @@
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 ![Mergify Status](https://img.shields.io/endpoint.svg?url=https://gh.mergify.io/badges/AlexRogalskiy/github-action-json-fields)
 [![Reviewed by Hound](https://img.shields.io/badge/Reviewed_by-Hound-8E64B0.svg)](https://houndci.com)
-
-<!-- [![Become a sponsor](https://img.shields.io/badge/sponsor-AlexRogalskiy-181717.svg?logo=github)](https://github.com/sponsors/AlexRogalskiy)-->
+[![Chat](https://img.shields.io/badge/chat-discussions-success.svg)](https://github.com/AlexRogalskiy/github-action-json-fields/discussions)
 
 [![DeepScan grade](https://deepscan.io/api/teams/11946/projects/16314/branches/347248/badge/grade.svg)](https://deepscan.io/dashboard#view=project&tid=11946&pid=16314&bid=347248)
 ![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/AlexRogalskiy/github-action-json-fields)

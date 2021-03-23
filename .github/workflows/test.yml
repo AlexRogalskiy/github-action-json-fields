@@ -62,6 +62,9 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
+      - name: Build Dependencies
+        run: npm all
+
       - uses: ./
         with:
           mode: 'unique'
