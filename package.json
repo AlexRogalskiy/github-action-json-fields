@@ -32,6 +32,7 @@
         "test:coverage": "env-cmd --silent -e test jest --collectCoverage --detectOpenHandles",
         "test:watch": "env-cmd --silent -e test jest --watch",
         "test:all": "npm run test && npm run test:folio",
+        "check:all": "npm run format:check",
         "all": "npm run format && npm run pretty && npm run lint && npm run build"
     },
     "dependencies": {
@@ -128,8 +129,9 @@
     },
     "husky": {
         "hooks": {
+            "pre-push": "npm run check:all",
             "prepare-commit-msg": "git cz --hook --non-interactive --type=feat --subject=\"added new features\" || true",
-            "pre-commit": "npm run lint:staged && npm run all && npm test:all"
+            "pre-commit": "npm run lint:staged && npm run all && npm run test:all"
         }
     },
     "bugs": {
