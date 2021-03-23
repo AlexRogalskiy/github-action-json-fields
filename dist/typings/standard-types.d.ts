@@ -11,12 +11,18 @@ export declare type Optional<T> = T | null | undefined;
  */
 export declare type BiPredicate<T> = (a: T, b: T) => boolean;
 /**
- * Comparator types
+ * Comparator
+ * @desc Type representing comparator function
  */
 export declare type Comparator<T> = (a: T, b: T) => number;
+/**
+ * PropertyComparator
+ * @desc Type representing property comparator function
+ */
 export declare type PropertyComparator<T> = (a: T, b: T, value: string) => number;
 /**
- * Comparator modes
+ * ComparatorMode
+ * @desc Type representing supported comparator modes
  */
 export declare type ComparatorMode = 'asc' | 'desc';
 //# sourceMappingURL=standard-types.d.ts.map

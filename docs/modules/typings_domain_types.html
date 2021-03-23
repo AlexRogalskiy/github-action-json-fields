@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>typings/types | github-action-json-fields</title>
+	<title>typings/domain-types | github-action-json-fields</title>
 	<meta name="description" content="Documentation for github-action-json-fields">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -53,10 +53,10 @@
 					<a href="../modules.html">github-action-json-fields</a>
 				</li>
 				<li>
-					<a href="typings_types.html">typings/types</a>
+					<a href="typings_domain_types.html">typings/domain-types</a>
 				</li>
 			</ul>
-			<h1>Module typings/types</h1>
+			<h1>Module typings/domain-types</h1>
 		</div>
 	</div>
 </header>
@@ -70,7 +70,7 @@
 						<section class="tsd-index-section ">
 							<h3>Type aliases</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-type-alias tsd-parent-kind-module"><a href="typings_types.html#configoptions" class="tsd-kind-icon">Config<wbr>Options</a></li>
+								<li class="tsd-kind-type-alias tsd-parent-kind-module"><a href="typings_domain_types.html#configoptions" class="tsd-kind-icon">Config<wbr>Options</a></li>
 							</ul>
 						</section>
 					</div>
@@ -84,7 +84,7 @@
 					<div class="tsd-signature tsd-kind-icon">Config<wbr>Options<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{ </span>jsonFields<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">; </span>jsonMode<span class="tsd-signature-symbol">?: </span><a href="../enums/typings_enum_types.jsonmode.html" class="tsd-signature-type" data-tsd-kind="Enumeration">JsonMode</a><span class="tsd-signature-symbol">; </span>jsonPath<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>sourceFile<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>targetFile<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>targetPath<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> }</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/AlexRogalskiy/github-action-json-fields/blob/28a212d/typings/types.ts#L7">typings/types.ts:7</a></li>
+							<li>Defined in <a href="https://github.com/AlexRogalskiy/github-action-json-fields/blob/7731c1e/typings/domain-types.ts#L7">typings/domain-types.ts:7</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -102,21 +102,51 @@
 						<ul class="tsd-parameters">
 							<li class="tsd-parameter">
 								<h5><span class="tsd-flag ts-flagOptional">Optional</span> <span class="tsd-flag ts-flagReadonly">Readonly</span> json<wbr>Fields<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></h5>
+								<div class="tsd-comment tsd-typography">
+									<div class="lead">
+										<p>Array of json fields to process</p>
+									</div>
+								</div>
 							</li>
 							<li class="tsd-parameter">
 								<h5><span class="tsd-flag ts-flagOptional">Optional</span> <span class="tsd-flag ts-flagReadonly">Readonly</span> json<wbr>Mode<span class="tsd-signature-symbol">?: </span><a href="../enums/typings_enum_types.jsonmode.html" class="tsd-signature-type" data-tsd-kind="Enumeration">JsonMode</a></h5>
+								<div class="tsd-comment tsd-typography">
+									<div class="lead">
+										<p>Supported json mode (unique/duplicate)</p>
+									</div>
+								</div>
 							</li>
 							<li class="tsd-parameter">
 								<h5><span class="tsd-flag ts-flagOptional">Optional</span> <span class="tsd-flag ts-flagReadonly">Readonly</span> json<wbr>Path<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span></h5>
+								<div class="tsd-comment tsd-typography">
+									<div class="lead">
+										<p>Json path to fetch data from</p>
+									</div>
+								</div>
 							</li>
 							<li class="tsd-parameter">
 								<h5><span class="tsd-flag ts-flagOptional">Optional</span> <span class="tsd-flag ts-flagReadonly">Readonly</span> source<wbr>File<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span></h5>
+								<div class="tsd-comment tsd-typography">
+									<div class="lead">
+										<p>Source file to process</p>
+									</div>
+								</div>
 							</li>
 							<li class="tsd-parameter">
 								<h5><span class="tsd-flag ts-flagOptional">Optional</span> <span class="tsd-flag ts-flagReadonly">Readonly</span> target<wbr>File<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span></h5>
+								<div class="tsd-comment tsd-typography">
+									<div class="lead">
+										<p>Target file name</p>
+									</div>
+								</div>
 							</li>
 							<li class="tsd-parameter">
 								<h5><span class="tsd-flag ts-flagOptional">Optional</span> <span class="tsd-flag ts-flagReadonly">Readonly</span> target<wbr>Path<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span></h5>
+								<div class="tsd-comment tsd-typography">
+									<div class="lead">
+										<p>Target path to store processed files</p>
+									</div>
+								</div>
 							</li>
 						</ul>
 					</div>
@@ -150,21 +180,21 @@
 					<li class=" tsd-kind-module">
 						<a href="src_utils_validators.html">src/utils/validators</a>
 					</li>
+					<li class="current tsd-kind-module">
+						<a href="typings_domain_types.html">typings/domain-<wbr>types</a>
+					</li>
 					<li class=" tsd-kind-module">
 						<a href="typings_enum_types.html">typings/enum-<wbr>types</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="typings_standard_types.html">typings/standard-<wbr>types</a>
 					</li>
-					<li class="current tsd-kind-module">
-						<a href="typings_types.html">typings/types</a>
-					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
-						<a href="typings_types.html#configoptions" class="tsd-kind-icon">Config<wbr>Options</a>
+						<a href="typings_domain_types.html#configoptions" class="tsd-kind-icon">Config<wbr>Options</a>
 					</li>
 				</ul>
 			</nav>

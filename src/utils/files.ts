@@ -10,7 +10,7 @@ import {
     writeFile,
 } from 'fs'
 
-import { ConfigOptions } from '../../typings/types'
+import { ConfigOptions } from '../../typings/domain-types'
 
 import { deserialize, serialize } from './serializers'
 

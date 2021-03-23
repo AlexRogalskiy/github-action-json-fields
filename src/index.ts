@@ -2,7 +2,7 @@ import * as core from '@actions/core'
 import * as jp from 'jsonpath'
 import { basename } from 'path'
 
-import { ConfigOptions } from '../typings/types'
+import { ConfigOptions } from '../typings/domain-types'
 import { JsonMode } from '../typings/enum-types'
 import { BiPredicate, Comparator } from '../typings/standard-types'
 

@@ -13,12 +13,19 @@ export type Optional<T> = T | null | undefined
 export type BiPredicate<T> = (a: T, b: T) => boolean
 
 /**
- * Comparator types
+ * Comparator
+ * @desc Type representing comparator function
  */
 export type Comparator<T> = (a: T, b: T) => number
+
+/**
+ * PropertyComparator
+ * @desc Type representing property comparator function
+ */
 export type PropertyComparator<T> = (a: T, b: T, value: string) => number
 
 /**
- * Comparator modes
+ * ComparatorMode
+ * @desc Type representing supported comparator modes
  */
 export type ComparatorMode = 'asc' | 'desc'
