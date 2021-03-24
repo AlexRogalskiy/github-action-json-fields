@@ -101,7 +101,9 @@ Processes JSON file by provided list of fields and file source parameters.
         "targetFile": "african_proverbs_unique.json",
         "mode": "unique",
         "jsonPath": "$.african[*]",
-        "jsonFields": "text"
+        "jsonFields": [
+            "text"
+        ]
     },
     {
         "sourceFile": "./data/gypsy_proverbs.json",
@@ -109,7 +111,9 @@ Processes JSON file by provided list of fields and file source parameters.
         "targetFile": "gypsy_proverbs_unique.json",
         "mode": "unique",
         "jsonPath": "$.gypsy[*]",
-        "jsonFields": "text"
+        "jsonFields": [
+            "text"
+        ]
     }
 ]
 ```

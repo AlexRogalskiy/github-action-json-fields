@@ -4,13 +4,17 @@
         "targetPath": "./data",
         "mode": "unique",
         "jsonPath": "$.african[*]",
-        "jsonFields": "text"
+        "jsonFields": [
+            "text"
+        ]
     },
     {
         "sourceFile": "./data/gypsy_proverbs.json",
         "targetPath": "./data",
         "mode": "unique",
         "jsonPath": "$.gypsy[*]",
-        "jsonFields": "text"
+        "jsonFields": [
+            "text"
+        ]
     }
 ]

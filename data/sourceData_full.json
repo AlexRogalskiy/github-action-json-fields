@@ -5,7 +5,9 @@
         "targetFile": "african_proverbs_unique.json",
         "mode": "unique",
         "jsonPath": "$.african[*]",
-        "jsonFields": "text"
+        "jsonFields": [
+            "text"
+        ]
     },
     {
         "sourceFile": "./data/gypsy_proverbs.json",
@@ -13,6 +15,8 @@
         "targetFile": "gypsy_proverbs_unique.json",
         "mode": "unique",
         "jsonPath": "$.gypsy[*]",
-        "jsonFields": "text"
+        "jsonFields": [
+            "text"
+        ]
     }
 ]

@@ -1,6 +1,8 @@
 import * as core from '@actions/core'
 import * as jp from 'jsonpath'
+
 import { basename } from 'path'
+import boxen from 'boxen'
 
 import { ConfigOptions } from '../typings/domain-types'
 import { JsonMode } from '../typings/enum-types'
@@ -10,12 +12,14 @@ import { valueError } from './errors/errors'
 import { getType, isArray, isValidFile } from './utils/validators'
 import { compareBy, compareByPropertyKey, compareIgnoreCase } from './utils/comparators'
 import { getDataAsJson, storeDataAsJson } from './utils/files'
+import { serialize } from './utils/serializers'
 
-const getFilter = <T>(jsonMode: JsonMode): BiPredicate<T> => {
-    return (a: T, b: T) => (jsonMode === JsonMode.unique ? a === b : a !== b)
-}
+import { profile } from './utils/env'
 
-const getComparator = (fields: PropertyKey[]): Comparator<any> => {
+const getFilter = <T>(jsonMode: JsonMode): BiPredicate<T> => (a: T, b: T) =>
+    jsonMode === JsonMode.unique ? a === b : a !== b
+
+const getComparator = (fields: string[]): Comparator<any> => {
     const comparators = fields.map(field =>
         compareByPropertyKey(field, (a: string, b: string) => compareIgnoreCase(a, b))
     )
@@ -23,17 +27,15 @@ const getComparator = (fields: PropertyKey[]): Comparator<any> => {
     return compareBy(...comparators)
 }
 
-const processSourceFile = async (
-    fileName: string,
-    jsonMode: JsonMode,
+const processJsonQuery = async <T>(
+    jsonData: T,
     jsonPath: string,
-    fields: PropertyKey[]
-): Promise<any> => {
-    const filterMode = getFilter(jsonMode)
-    const comparator = getComparator(fields)
-    const jsonData = getDataAsJson(fileName)
-
+    jsonMode: JsonMode,
+    jsonFields: string[]
+): Promise<void> => {
     const propertyData = jp.query(jsonData, jsonPath)
+    const filter = getFilter(jsonMode)
+    const comparator = getComparator(jsonFields)
 
     if (!isArray(propertyData)) {
         throw valueError(
@@ -43,59 +45,83 @@ const processSourceFile = async (
 
     const parentPath = jp.stringify(jp.parse(jsonPath).slice(0, -1))
     const filteredData = propertyData.filter((item, index, self) =>
-        filterMode(
+        filter(
             index,
             self.findIndex(value => comparator(value, item) === 0)
         )
     )
 
     jp.value(jsonData, parentPath, filteredData)
-
-    return jsonData
 }
 
-const processConfigOptions = async (options: Required<ConfigOptions>): Promise<boolean> => {
-    core.info(
-        `Processing source JSON file: ${options.sourceFile} with mode: ${options.jsonMode}, path: ${options.jsonPath}, fields: ${options.jsonFields}`
-    )
+const processSourceFile = async (options: ConfigOptions): Promise<boolean> => {
+    core.info(boxen(`Processing input file with options: ${serialize(options)}`, profile.outputOptions))
 
-    const jsonData = await processSourceFile(
-        options.sourceFile,
-        options.jsonMode,
-        options.jsonPath,
-        options.jsonFields
-    )
+    const { sourceFile, targetPath, targetFile, mode, jsonPath, jsonFields } = options
 
-    return await storeDataAsJson(options.targetPath, options.targetFile, jsonData)
+    try {
+        const jsonData = getDataAsJson<any>(sourceFile)
+
+        await processJsonQuery(jsonData, jsonPath, mode, jsonFields)
+
+        await storeDataAsJson(targetPath, targetFile, jsonData)
+
+        return true
+    } catch (e) {
+        core.error(`Cannot process input file: ${sourceFile}`)
+        throw e
+    }
 }
 
-const getConfigOptions = (options: any = {}): Required<ConfigOptions> => {
-    const sourceFile = options.sourceFile || core.getInput('sourceFile', { required: true })
-    const targetPath = options.targetPath || core.getInput('targetPath', { required: true })
-    const targetFile = options.targetFile || core.getInput('targetFile') || basename(sourceFile)
+const buildConfigOptions = (options: Partial<ConfigOptions>): ConfigOptions => {
+    const sourceFile = options.sourceFile || getRequiredProperty('sourceFile')
+    const targetPath = options.targetPath || getRequiredProperty('targetPath')
+    const targetFile = options.targetFile || getProperty('targetFile') || basename(sourceFile)
 
-    const mode = options.mode || core.getInput('mode', { required: true })
+    const mode = options.mode || JsonMode[getRequiredProperty('mode')]
 
-    const jsonMode = JsonMode[mode]
-    const jsonPath = options.jsonPath || core.getInput('jsonPath', { required: true })
-    const jsonFields = (options.jsonFields || core.getInput('jsonFields', { required: true })).split(',')
+    const jsonPath = options.jsonPath || getRequiredProperty('jsonPath')
+    const jsonFields = options.jsonFields || getRequiredProperty('jsonFields').split(',')
 
     return {
         sourceFile,
         targetPath,
         targetFile,
-        jsonMode,
+        mode,
         jsonPath,
         jsonFields,
     }
 }
 
-const processData = async (...options: ConfigOptions[]): Promise<void> => {
-    let status = false
+const getRequiredProperty = (property: string): string => {
+    return getProperty(property, { required: true })
+}
 
-    for (const item of options) {
-        const options = getConfigOptions(item)
-        status = await processConfigOptions(options)
+const getProperty = (property: string, options?: core.InputOptions): string => {
+    return core.getInput(property, options)
+}
+
+const executeOperation = async (...options: Partial<ConfigOptions>[]): Promise<boolean> => {
+    const result: boolean[] = []
+
+    for (const option of options) {
+        const options = buildConfigOptions(option)
+        const status = await processSourceFile(options)
+        result.push(status)
+    }
+
+    return result.every(value => value)
+}
+
+const runFilterOperation = async (): Promise<void> => {
+    const sourceData = core.getInput('sourceData')
+
+    let status: boolean
+    if (isValidFile(sourceData)) {
+        const options = getDataAsJson<Partial<ConfigOptions>[]>(sourceData)
+        status = await executeOperation(...options)
+    } else {
+        status = await executeOperation({})
     }
 
     core.setOutput('changed', status)
@@ -103,14 +129,7 @@ const processData = async (...options: ConfigOptions[]): Promise<void> => {
 
 export default async function run(): Promise<void> {
     try {
-        const sourceData = core.getInput('sourceData')
-
-        if (isValidFile(sourceData)) {
-            const options = getDataAsJson(sourceData)
-            await processData(...options)
-        } else {
-            await processData({})
-        }
+        await runFilterOperation()
     } catch (e) {
         core.setFailed(`Cannot process input JSON data, message: ${e.message}`)
     }

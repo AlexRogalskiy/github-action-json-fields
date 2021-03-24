@@ -1,4 +1,3 @@
-import * as core from '@actions/core'
 import { join } from 'path'
 import {
     accessSync,
@@ -10,34 +9,30 @@ import {
     writeFile,
 } from 'fs'
 
-import { ConfigOptions } from '../../typings/domain-types'
-
 import { deserialize, serialize } from './serializers'
 
 export const ensureDirExists = (dir: string, options: MakeDirectoryOptions = { recursive: true }): void => {
     existsSync(dir) || mkdirSync(dir, options)
 }
 
-export const getDataAsJson = (fileName: string): ConfigOptions[] => {
+export const getDataAsJson = <T>(fileName: string): T => {
     const fileData = readFileSync(fileName)
 
     return deserialize(fileData.toString())
 }
 
-export const storeDataAsJson = async (filePath: string, fileName: string, data: any): Promise<boolean> => {
+export const storeDataAsJson = async (filePath: string, fileName: string, data: any): Promise<void> => {
     ensureDirExists(filePath)
 
     const targetPath = join(filePath, fileName)
 
-    core.info(`Storing JSON data to target file: ${targetPath}`)
+    console.log(`Storing JSON data to target file: ${targetPath}`)
 
-    writeFile(targetPath, serialize(data), 'utf-8', err => {
+    writeFile(targetPath, serialize(data), err => {
         if (err) {
             throw err
         }
     })
-
-    return true
 }
 
 export const checkFileExists = (fileName: string, mode = constants.F_OK | constants.R_OK): boolean => {
