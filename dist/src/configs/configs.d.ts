@@ -2,7 +2,7 @@ import { Profile } from '../../typings/enum-types';
 import { ProfileOptions } from '../../typings/domain-types';
 /**
  * ProfileRecord
- * @desc Type representing profile configuration options
+ * @desc Type representing profiles configuration options
  */
 export declare type ProfileRecord = Record<Profile, Partial<ProfileOptions>>;
 /**

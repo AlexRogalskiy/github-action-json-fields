@@ -29,13 +29,15 @@
 ![CI](https://github.com/AlexRogalskiy/github-action-json-fields/workflows/CI/badge.svg)
 [![CircleCI](https://circleci.com/gh/AlexRogalskiy/github-action-json-fields.svg?style=shield)](https://circleci.com/gh/AlexRogalskiy/github-action-json-fields)
 
-<!--[![codecov](https://codecov.io/gh/AlexRogalskiy/github-action-json-fields/branch/master/graph/badge.svg)](https://codecov.io/gh/AlexRogalskiy/github-action-json-fields)-->
-
 [![GitHub Super-Linter](https://github.com/AlexRogalskiy/github-action-json-fields/workflows/Lint%20Code%20Base/badge.svg)](https://github.com/marketplace/actions/super-linter)
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 [![ComVer](https://img.shields.io/badge/ComVer-compliant-brightgreen.svg)][repo]
 [![Public workflows that use this action.][total_usages]][search_results]
 [![Licence][license_id]][license_content]
+
+[![Chat](https://img.shields.io/badge/chat-discussions-success.svg)](https://github.com/AlexRogalskiy/github-action-json-fields/discussions)
+[![Open questions](https://img.shields.io/badge/Open-questions-blue.svg?style=flat-curved)](https://github.com/AlexRogalskiy/github-action-json-fields/labels/question)
+[![Open bugs](https://img.shields.io/badge/Open-bugs-red.svg?style=flat-curved)](https://github.com/AlexRogalskiy/github-action-json-fields/labels/bug)
 
 ## _Table of contents_
 

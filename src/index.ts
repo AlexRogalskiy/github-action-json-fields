@@ -14,7 +14,7 @@ import { compareBy, compareByPropertyKey, compareIgnoreCase } from './utils/comp
 import { getDataAsJson, storeDataAsJson } from './utils/files'
 import { serialize } from './utils/serializers'
 
-import { profile } from './utils/env'
+import { profile } from './utils/profiles'
 
 const getFilter = <T>(jsonMode: JsonMode): BiPredicate<T> => (a: T, b: T) =>
     jsonMode === JsonMode.unique ? a === b : a !== b
@@ -114,7 +114,7 @@ const executeOperation = async (...options: Partial<ConfigOptions>[]): Promise<b
 }
 
 const runFilterOperation = async (): Promise<void> => {
-    const sourceData = core.getInput('sourceData')
+    const sourceData = getProperty('sourceData')
 
     let status: boolean
     if (isValidFile(sourceData)) {

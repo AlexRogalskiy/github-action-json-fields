@@ -5,7 +5,7 @@ import { OUTPUT_OPTIONS } from '../constants/constants'
 
 /**
  * ProfileRecord
- * @desc Type representing profile configuration options
+ * @desc Type representing profiles configuration options
  */
 export type ProfileRecord = Record<Profile, Partial<ProfileOptions>>
 

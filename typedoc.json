@@ -1,11 +1,7 @@
 {
-    "entryPoints": [
-        "./src",
-        "./typings"
-    ],
-    "externalPattern": [
-        "./data"
-    ],
+    "name": "GitHub action for Json Fields processing",
+    "entryPoints": ["./src", "./typings"],
+    "externalPattern": ["./data"],
     "exclude": [
         "**/__tests__/**/*",
         "**/__test_utils__/**/*",
@@ -13,7 +9,8 @@
         "**/*+(.spec|.e2e).ts"
     ],
     "excludeExternals": true,
-    "excludePrivate": true,
+    "hideGenerator": true,
+    "readme": "README.md",
     "highlightTheme": "dark-plus",
     "out": "docs"
 }
