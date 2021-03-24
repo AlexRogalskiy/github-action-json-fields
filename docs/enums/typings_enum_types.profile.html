@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>JsonMode | github-action-json-fields</title>
+	<title>Profile | github-action-json-fields</title>
 	<meta name="description" content="Documentation for github-action-json-fields">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,10 +56,10 @@
 					<a href="../modules/typings_enum_types.html">typings/enum-types</a>
 				</li>
 				<li>
-					<a href="typings_enum_types.jsonmode.html">JsonMode</a>
+					<a href="typings_enum_types.profile.html">Profile</a>
 				</li>
 			</ul>
-			<h1>Enumeration JsonMode</h1>
+			<h1>Enumeration Profile</h1>
 		</div>
 	</div>
 </header>
@@ -69,11 +69,11 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>JsonMode</p>
+						<p>Profile</p>
 					</div>
 					<dl class="tsd-comment-tags">
 						<dt>desc</dt>
-						<dd><p>Type representing json operation modes</p>
+						<dd><p>Type representing supported profiles</p>
 						</dd>
 					</dl>
 				</div>
@@ -85,8 +85,9 @@
 						<section class="tsd-index-section ">
 							<h3>Enumeration members</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="typings_enum_types.jsonmode.html#duplicate" class="tsd-kind-icon">duplicate</a></li>
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="typings_enum_types.jsonmode.html#unique" class="tsd-kind-icon">unique</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="typings_enum_types.profile.html#dev" class="tsd-kind-icon">dev</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="typings_enum_types.profile.html#prod" class="tsd-kind-icon">prod</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="typings_enum_types.profile.html#test" class="tsd-kind-icon">test</a></li>
 							</ul>
 						</section>
 					</div>
@@ -95,34 +96,34 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Enumeration members</h2>
 				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="duplicate" class="tsd-anchor"></a>
-					<h3>duplicate</h3>
-					<div class="tsd-signature tsd-kind-icon">duplicate<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;duplicate&quot;</span></div>
+					<a name="dev" class="tsd-anchor"></a>
+					<h3>dev</h3>
+					<div class="tsd-signature tsd-kind-icon">dev<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;dev&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/AlexRogalskiy/github-action-json-fields/blob/afb845c/typings/enum-types.ts#L23">typings/enum-types.ts:23</a></li>
+							<li>Defined in <a href="https://github.com/AlexRogalskiy/github-action-json-fields/blob/afb845c/typings/enum-types.ts#L6">typings/enum-types.ts:6</a></li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Only duplicate strings processed</p>
-						</div>
-					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="unique" class="tsd-anchor"></a>
-					<h3>unique</h3>
-					<div class="tsd-signature tsd-kind-icon">unique<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;unique&quot;</span></div>
+					<a name="prod" class="tsd-anchor"></a>
+					<h3>prod</h3>
+					<div class="tsd-signature tsd-kind-icon">prod<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;prod&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/AlexRogalskiy/github-action-json-fields/blob/afb845c/typings/enum-types.ts#L19">typings/enum-types.ts:19</a></li>
+							<li>Defined in <a href="https://github.com/AlexRogalskiy/github-action-json-fields/blob/afb845c/typings/enum-types.ts#L7">typings/enum-types.ts:7</a></li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Only unique strings processed</p>
-						</div>
-					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
+					<a name="test" class="tsd-anchor"></a>
+					<h3>test</h3>
+					<div class="tsd-signature tsd-kind-icon">test<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;test&quot;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/AlexRogalskiy/github-action-json-fields/blob/afb845c/typings/enum-types.ts#L8">typings/enum-types.ts:8</a></li>
+						</ul>
+					</aside>
 				</section>
 			</section>
 		</div>
@@ -175,24 +176,27 @@
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
+					<li class=" tsd-kind-enum tsd-parent-kind-module">
+						<a href="typings_enum_types.jsonmode.html" class="tsd-kind-icon">Json<wbr>Mode</a>
+					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-enum tsd-parent-kind-module">
-						<a href="typings_enum_types.jsonmode.html" class="tsd-kind-icon">Json<wbr>Mode</a>
+						<a href="typings_enum_types.profile.html" class="tsd-kind-icon">Profile</a>
 						<ul>
 							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="typings_enum_types.jsonmode.html#duplicate" class="tsd-kind-icon">duplicate</a>
+								<a href="typings_enum_types.profile.html#dev" class="tsd-kind-icon">dev</a>
 							</li>
 							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="typings_enum_types.jsonmode.html#unique" class="tsd-kind-icon">unique</a>
+								<a href="typings_enum_types.profile.html#prod" class="tsd-kind-icon">prod</a>
+							</li>
+							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
+								<a href="typings_enum_types.profile.html#test" class="tsd-kind-icon">test</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
-					<li class=" tsd-kind-enum tsd-parent-kind-module">
-						<a href="typings_enum_types.profile.html" class="tsd-kind-icon">Profile</a>
-					</li>
 				</ul>
 			</nav>
 		</div>

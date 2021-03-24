@@ -66,8 +66,8 @@
 				<p><a href="https://github.com/lekterable/perfekt"><img src="https://img.shields.io/badge/management-perfekt%F0%9F%91%8C-red.svg" alt="management: perfekt👌"></a>
 					<a href="https://github.com/prettier/prettier"><img src="https://img.shields.io/badge/code_style-prettier-ff69b4.svg" alt="code style: prettier"></a>
 					<img src="https://img.shields.io/endpoint.svg?url=https://gh.mergify.io/badges/AlexRogalskiy/github-action-json-fields" alt="Mergify Status">
-				<a href="https://houndci.com"><img src="https://img.shields.io/badge/Reviewed_by-Hound-8E64B0.svg" alt="Reviewed by Hound"></a></p>
-				<!-- [![Become a sponsor](https://img.shields.io/badge/sponsor-AlexRogalskiy-181717.svg?logo=github)](https://github.com/sponsors/AlexRogalskiy)-->
+					<a href="https://houndci.com"><img src="https://img.shields.io/badge/Reviewed_by-Hound-8E64B0.svg" alt="Reviewed by Hound"></a>
+				<a href="https://github.com/AlexRogalskiy/github-action-json-fields/discussions"><img src="https://img.shields.io/badge/chat-discussions-success.svg" alt="Chat"></a></p>
 				<p><a href="https://deepscan.io/dashboard#view=project&amp;tid=11946&amp;pid=16314&amp;bid=347248"><img src="https://deepscan.io/api/teams/11946/projects/16314/branches/347248/badge/grade.svg" alt="DeepScan grade"></a>
 					<img src="https://img.shields.io/github/v/tag/AlexRogalskiy/github-action-json-fields" alt="GitHub tag (latest by date)">
 					<img src="https://img.shields.io/github/release-date/AlexRogalskiy/github-action-json-fields" alt="GitHub Release Date">
@@ -166,7 +166,9 @@
 <span style="color: #D4D4D4">        </span><span style="color: #9CDCFE">&quot;targetFile&quot;</span><span style="color: #D4D4D4">: </span><span style="color: #CE9178">&quot;african_proverbs_unique.json&quot;</span><span style="color: #D4D4D4">,</span>
 <span style="color: #D4D4D4">        </span><span style="color: #9CDCFE">&quot;mode&quot;</span><span style="color: #D4D4D4">: </span><span style="color: #CE9178">&quot;unique&quot;</span><span style="color: #D4D4D4">,</span>
 <span style="color: #D4D4D4">        </span><span style="color: #9CDCFE">&quot;jsonPath&quot;</span><span style="color: #D4D4D4">: </span><span style="color: #CE9178">&quot;$.african[*]&quot;</span><span style="color: #D4D4D4">,</span>
-<span style="color: #D4D4D4">        </span><span style="color: #9CDCFE">&quot;jsonFields&quot;</span><span style="color: #D4D4D4">: </span><span style="color: #CE9178">&quot;text&quot;</span>
+<span style="color: #D4D4D4">        </span><span style="color: #9CDCFE">&quot;jsonFields&quot;</span><span style="color: #D4D4D4">: [</span>
+<span style="color: #D4D4D4">            </span><span style="color: #CE9178">&quot;text&quot;</span>
+<span style="color: #D4D4D4">        ]</span>
 <span style="color: #D4D4D4">    },</span>
 <span style="color: #D4D4D4">    {</span>
 <span style="color: #D4D4D4">        </span><span style="color: #9CDCFE">&quot;sourceFile&quot;</span><span style="color: #D4D4D4">: </span><span style="color: #CE9178">&quot;./data/gypsy_proverbs.json&quot;</span><span style="color: #D4D4D4">,</span>
@@ -174,7 +176,9 @@
 <span style="color: #D4D4D4">        </span><span style="color: #9CDCFE">&quot;targetFile&quot;</span><span style="color: #D4D4D4">: </span><span style="color: #CE9178">&quot;gypsy_proverbs_unique.json&quot;</span><span style="color: #D4D4D4">,</span>
 <span style="color: #D4D4D4">        </span><span style="color: #9CDCFE">&quot;mode&quot;</span><span style="color: #D4D4D4">: </span><span style="color: #CE9178">&quot;unique&quot;</span><span style="color: #D4D4D4">,</span>
 <span style="color: #D4D4D4">        </span><span style="color: #9CDCFE">&quot;jsonPath&quot;</span><span style="color: #D4D4D4">: </span><span style="color: #CE9178">&quot;$.gypsy[*]&quot;</span><span style="color: #D4D4D4">,</span>
-<span style="color: #D4D4D4">        </span><span style="color: #9CDCFE">&quot;jsonFields&quot;</span><span style="color: #D4D4D4">: </span><span style="color: #CE9178">&quot;text&quot;</span>
+<span style="color: #D4D4D4">        </span><span style="color: #9CDCFE">&quot;jsonFields&quot;</span><span style="color: #D4D4D4">: [</span>
+<span style="color: #D4D4D4">            </span><span style="color: #CE9178">&quot;text&quot;</span>
+<span style="color: #D4D4D4">        ]</span>
 <span style="color: #D4D4D4">    }</span>
 <span style="color: #D4D4D4">]</span>
 </code></pre>
@@ -314,6 +318,12 @@
 						<a href="modules/src.html">src</a>
 					</li>
 					<li class=" tsd-kind-module">
+						<a href="modules/src_configs_configs.html">src/configs/configs</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/src_constants_constants.html">src/constants/constants</a>
+					</li>
+					<li class=" tsd-kind-module">
 						<a href="modules/src_errors_errors.html">src/errors/errors</a>
 					</li>
 					<li class=" tsd-kind-module">
@@ -321,6 +331,9 @@
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="modules/src_utils_comparators.html">src/utils/comparators</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/src_utils_env.html">src/utils/env</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="modules/src_utils_files.html">src/utils/files</a>
@@ -354,6 +367,7 @@
 		<h2>Legend</h2>
 		<div class="tsd-legend-group">
 			<ul class="tsd-legend">
+				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
 				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
 				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
 				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
