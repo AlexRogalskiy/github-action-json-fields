@@ -87,7 +87,7 @@ jobs:
       - uses: ./
         with:
           mode: 'unique'
-          jsonPath: 'african'
+          jsonPath: '$.african[*]'
           jsonFields: 'text'
           sourceFile: ./data/african_proverbs.json
           targetPath: ./data
