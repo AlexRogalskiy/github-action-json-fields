@@ -2,19 +2,19 @@ import * as core from '@actions/core'
 import * as jp from 'jsonpath'
 
 import { basename } from 'path'
-import boxen from 'boxen'
 
 import { ConfigOptions } from '../typings/domain-types'
 import { JsonMode } from '../typings/enum-types'
 import { BiPredicate, Comparator } from '../typings/standard-types'
 
 import { valueError } from './errors/errors'
+
 import { getType, isArray, isValidFile } from './utils/validators'
 import { compareBy, compareByPropertyKey, compareIgnoreCase } from './utils/comparators'
 import { getDataAsJson, storeDataAsJson } from './utils/files'
 import { serialize } from './utils/serializers'
 
-import { profile } from './utils/profiles'
+import { coreError, coreInfo } from './utils/loggers'
 
 const getFilter = <T>(jsonMode: JsonMode): BiPredicate<T> => (a: T, b: T) =>
     jsonMode === JsonMode.unique ? a === b : a !== b
@@ -55,7 +55,7 @@ const processJsonQuery = async <T>(
 }
 
 const processSourceFile = async (options: ConfigOptions): Promise<boolean> => {
-    core.info(boxen(`Processing input file with options: ${serialize(options)}`, profile.outputOptions))
+    coreInfo(`Processing input file with options: ${serialize(options)}`)
 
     const { sourceFile, targetPath, targetFile, mode, jsonPath, jsonFields } = options
 
@@ -68,7 +68,7 @@ const processSourceFile = async (options: ConfigOptions): Promise<boolean> => {
 
         return true
     } catch (e) {
-        core.error(`Cannot process input file: ${sourceFile}`)
+        coreError(`Cannot process input file: ${sourceFile}`)
         throw e
     }
 }
