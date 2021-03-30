@@ -67,9 +67,9 @@ const processSourceFile = async (options: ConfigOptions): Promise<boolean> => {
         await storeDataAsJson(targetPath, targetFile, jsonData)
 
         return true
-    } catch (e) {
+    } catch (error) {
         coreError(`Cannot process input file: ${sourceFile}`)
-        throw e
+        throw error
     }
 }
 
@@ -130,8 +130,8 @@ const runFilterOperation = async (): Promise<void> => {
 export default async function run(): Promise<void> {
     try {
         await runFilterOperation()
-    } catch (e) {
-        core.setFailed(`Cannot process input JSON data, message: ${e.message}`)
+    } catch (error) {
+        core.setFailed(`Cannot process input JSON data, message: ${error.message}`)
     }
 }
 

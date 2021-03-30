@@ -60,7 +60,7 @@ export const hasProperty = (obj: any, prop: Optional<PropertyKey>): boolean => {
     if (isNullOrUndefined(obj)) return false
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
-    return isFunction(obj.hasOwnProperty) ? obj.hasOwnProperty(prop) : prop in obj
+    return isFunction(obj.hasOwnProperty) ? Object.prototype.hasOwnProperty.call(obj, prop) : prop in obj
 }
 
 /**

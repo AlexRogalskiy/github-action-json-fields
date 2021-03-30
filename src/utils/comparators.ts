@@ -299,8 +299,8 @@ export const compareByLocaleOptions = (() => {
         const localeCompareSupportsCollator = <T extends string>(a: T, b: T): Optional<number> => {
             try {
                 return new Intl.Collator(locale_, options_).compare(a, b)
-            } catch (e) {
-                console.log(`ERROR: invalid locale supports collator < ${e.message} >`)
+            } catch (error) {
+                console.log(`ERROR: invalid locale supports collator < ${error.message} >`)
                 return null
             }
         }
@@ -308,8 +308,8 @@ export const compareByLocaleOptions = (() => {
         const localeCompareSupportsLocales = <T extends string>(a: T, b: T): Optional<number> => {
             try {
                 return new Intl.Collator(locale_, options_).compare(a, b)
-            } catch (e) {
-                console.log(`ERROR: invalid supports locales < ${e.message} >`)
+            } catch (error) {
+                console.log(`ERROR: invalid supports locales < ${error.message} >`)
                 return null
             }
         }
