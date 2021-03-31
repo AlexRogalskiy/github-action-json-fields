@@ -62,4 +62,7 @@ node_modules
 .vercel
 
 # Build files
+!dist/action.js
+!dist/esprima.js
 !dist/index.js
+!dist/module.js
