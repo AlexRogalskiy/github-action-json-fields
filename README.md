@@ -94,7 +94,9 @@ Processes JSON file by provided list of fields and file source parameters.
 
 ### `sourceData`
 
-**Optional** JSON data source file with following action parameters (just for actual example):
+**Optional** JSON data source file with action parameters:
+
+#### Complete parameters
 
 ```json
 [
@@ -112,6 +114,31 @@ Processes JSON file by provided list of fields and file source parameters.
         "sourceFile": "./data/gypsy_proverbs.json",
         "targetPath": "./data",
         "targetFile": "gypsy_proverbs_unique.json",
+        "mode": "unique",
+        "jsonPath": "$.gypsy[*]",
+        "jsonFields": [
+            "text"
+        ]
+    }
+]
+```
+
+#### Basic parameters
+
+```json
+[
+    {
+        "sourceFile": "./data/african_proverbs.json",
+        "targetPath": "./data",
+        "mode": "unique",
+        "jsonPath": "$.african[*]",
+        "jsonFields": [
+            "text"
+        ]
+    },
+    {
+        "sourceFile": "./data/gypsy_proverbs.json",
+        "targetPath": "./data",
         "mode": "unique",
         "jsonPath": "$.gypsy[*]",
         "jsonFields": [
