@@ -16,5 +16,6 @@ git add -f dist/esprima.js
 git add -f dist/index.js
 git add -f dist/module.js
 
+git add README.md
 git add CHANGELOG.md
 git add package-lock.json
