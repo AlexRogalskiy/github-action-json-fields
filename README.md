@@ -1,4 +1,4 @@
-# _Json fields_
+# *Json fields*
 
 > GitHub Action to process JSON file by provided fields
 
@@ -10,7 +10,7 @@
 [![Reviewed by Hound](https://img.shields.io/badge/Reviewed_by-Hound-8E64B0.svg)](https://houndci.com)
 [![Chat](https://img.shields.io/badge/chat-discussions-success.svg)](https://github.com/AlexRogalskiy/github-action-json-fields/discussions)
 
-[![DeepScan grade](https://deepscan.io/api/teams/11946/projects/16314/branches/347248/badge/grade.svg)](https://deepscan.io/dashboard#view=project&tid=11946&pid=16314&bid=347248)
+[![DeepScan grade](https://deepscan.io/api/teams/11946/projects/16314/branches/347248/badge/grade.svg)](https://deepscan.io/dashboard#view=project\&tid=11946\&pid=16314\&bid=347248)
 ![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/AlexRogalskiy/github-action-json-fields)
 ![GitHub Release Date](https://img.shields.io/github/release-date/AlexRogalskiy/github-action-json-fields)
 ![Lines of code](https://tokei.rs/b1/github/AlexRogalskiy/github-action-json-fields?category=lines)
@@ -40,38 +40,30 @@
 [![Open questions](https://img.shields.io/badge/Open-questions-blue.svg?style=flat-curved)](https://github.com/AlexRogalskiy/github-action-json-fields/labels/question)
 [![Open bugs](https://img.shields.io/badge/Open-bugs-red.svg?style=flat-curved)](https://github.com/AlexRogalskiy/github-action-json-fields/labels/bug)
 
-## _Table of contents_
+## *Table of contents*
 
-<!--ts-->
-   * [<em>Json fields</em>](#json-fields)
-      * [<em>Table of contents</em>](#table-of-contents)
-      * [<em>Description</em>](#description)
-      * [<em>Inputs</em>](#inputs)
-         * [sourceData](#sourcedata)
-         * [mode](#mode)
-            * [unique](#unique)
-            * [duplicate](#duplicate)
-         * [jsonPath](#jsonpath)
-         * [jsonFields](#jsonfields)
-         * [sourceFile](#sourcefile)
-         * [targetPath](#targetpath)
-         * [targetFile](#targetfile)
-      * [<em>Outputs</em>](#outputs)
-         * [changed](#changed)
-            * [true](#true)
-            * [false](#false)
-      * [<em>Examples</em>](#examples)
-      * [<em>Visitor stats</em>](#visitor-stats)
-      * [<em>Licensing</em>](#licensing)
-      * [<em>Authors</em>](#authors)
-      * [<em>Versioning</em>](#versioning)
-      * [<em>Contribution</em>](#contribution)
-      * [<em>Acknowledgement</em>](#acknowledgement)
-      * [<em>Forks</em>](#forks)
-      * [<em>Development Support</em>](#development-support)
-<!--te-->
+- [*Description*](#description)
+- [*Inputs*](#inputs)
+  - [`sourceData`](#sourcedata)
+  - [`mode`](#mode)
+  - [`jsonPath`](#jsonpath)
+  - [`jsonFields`](#jsonfields)
+  - [`sourceFile`](#sourcefile)
+  - [`targetPath`](#targetpath)
+  - [`targetFile`](#targetfile)
+- [*Outputs*](#outputs)
+  - [`changed`](#changed)
+- [*Examples*](#examples)
+- [*Visitor stats*](#visitor-stats)
+- [*Licensing*](#licensing)
+- [*Authors*](#authors)
+- [*Versioning*](#versioning)
+- [*Contribution*](#contribution)
+- [*Acknowledgement*](#acknowledgement)
+- [*Forks*](#forks)
+- [*Development Support*](#development-support)
 
-## _Description_
+## *Description*
 
 <p align="center" style="text-align:center;">
     <a href="https://www.typescriptlang.org/">
@@ -90,7 +82,7 @@
 
 Processes JSON file by provided list of fields and file source parameters.
 
-## _Inputs_
+## *Inputs*
 
 ### `sourceData`
 
@@ -182,7 +174,7 @@ More information on JSON path queries can be found at [jsonpath](https://www.npm
 
 **Optional** Target JSON destination file name (default **sourceFile**)
 
-## _Outputs_
+## *Outputs*
 
 ### `changed`
 
@@ -196,7 +188,7 @@ When JSON source file successfully processed and results stored to destination f
 
 When error occurred while processing JSON source file
 
-## _Examples_
+## *Examples*
 
 ```yml
 - name: Process JSON file by fields
@@ -214,38 +206,38 @@ Running locally:
 
 - `npm run start:action --action github-action-json-fields --mode 'unique' --jsonPath 'african' --jsonFields 'text' --sourceFile './data/african_proverbs.json' --targetPath './data' --targetFile 'african_proverbs_unique.json'`
 
-## _Visitor stats_
+## *Visitor stats*
 
-[![GitHub page hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FAlexRogalskiy%2Fgithub-action-json-fields&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=true)](https://hits.seeyoufarm.com)
+[![GitHub page hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FAlexRogalskiy%2Fgithub-action-json-fields\&count_bg=%2379C83D\&title_bg=%23555555\&icon=\&icon_color=%23E7E7E7\&title=hits\&edge_flat=true)](https://hits.seeyoufarm.com)
 
 ![GitHub stars](https://img.shields.io/github/stars/AlexRogalskiy/github-action-json-fields?style=social)
 ![GitHub forks](https://img.shields.io/github/forks/AlexRogalskiy/github-action-json-fields?style=social)
 ![GitHub watchers](https://img.shields.io/github/watchers/AlexRogalskiy/github-action-json-fields?style=social)
 
-## _Licensing_
+## *Licensing*
 
-_**Json Fields**_ is distributed under LGPL version 3 or later,
-[[License](https://github.com/AlexRogalskiy/github-action-json-fields/blob/master/LICENSE)]. LGPLv3 is additional
+***Json Fields*** is distributed under LGPL version 3 or later,
+\[[License](https://github.com/AlexRogalskiy/github-action-json-fields/blob/master/LICENSE)]. LGPLv3 is additional
 permissions on top of GPLv3.
 
 ![license](https://user-images.githubusercontent.com/19885116/48661948-6cf97e80-ea7a-11e8-97e7-b45332a13e49.png)
 
-## _Authors_
+## *Authors*
 
-_**Json Fields**_ is maintained by the following GitHub team-members:
+***Json Fields*** is maintained by the following GitHub team-members:
 
 - [![Author](https://img.shields.io/badge/author-AlexRogalskiy-FB8F0A)](https://github.com/AlexRogalskiy)
 
 with community support please contact with us if you have some question or proposition.
 
-## _Versioning_
+## *Versioning*
 
 The project uses [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on
 this repository][tags].
 
-## _Contribution_
+## *Contribution*
 
-[![Contributors Display](https://badges.pufler.dev/contributors/AlexRogalskiy/github-action-json-fields?size=50&padding=5&bots=true)](https://badges.pufler.dev)
+[![Contributors Display](https://badges.pufler.dev/contributors/AlexRogalskiy/github-action-json-fields?size=50\&padding=5\&bots=true)](https://badges.pufler.dev)
 
 Please read
 [CONTRIBUTING.md](https://github.com/AlexRogalskiy/github-action-json-fields/blob/master/.github/CONTRIBUTING.md)
@@ -260,39 +252,48 @@ specification. Contributions of any kind are welcome!
 
 See also the list of [contributors][contributors] who participated in this project.
 
-## _Acknowledgement_
+## *Acknowledgement*
 
 [![Stargazers repo roster for @AlexRogalskiy/github-action-json-fields](https://reporoster.com/stars/AlexRogalskiy/github-action-json-fields)][stars]
 
-## _Forks_
+## *Forks*
 
 [![Forkers repo roster for @AlexRogalskiy/github-action-json-fields](https://reporoster.com/forks/AlexRogalskiy/github-action-json-fields)][forkers]
 
-## _Development Support_
+## *Development Support*
 
-Like _**Json Fields**_ ? Consider buying me a coffee :\)
+Like ***Json Fields*** ? Consider buying me a coffee :)
 
-[![Become a Patron](https://img.shields.io/badge/Become_Patron-Support_me_on_Patreon-blue.svg?style=flat-square&logo=patreon&color=e64413)](https://www.patreon.com/alexrogalskiy)
+[![Become a Patron](https://img.shields.io/badge/Become_Patron-Support_me_on_Patreon-blue.svg?style=flat-square\&logo=patreon\&color=e64413)](https://www.patreon.com/alexrogalskiy)
 [![Buy Me A Coffee](https://img.shields.io/badge/Donate-Buy%20me%20a%20coffee-yellow.svg?logo=buy%20me%20a%20coffee)](https://www.buymeacoffee.com/AlexRogalskiy)
 [![KoFi](https://img.shields.io/badge/Donate-Buy%20me%20a%20coffee-yellow.svg?logo=ko-fi)](https://ko-fi.com/alexrogalskiy)
 
----
+***
 
-[![forthebadge](https://img.shields.io/badge/made%20with-%20typescript-C1282D.svg?logo=typescript&style=for-the-badge)](https://www.typescriptlang.org/)
-[![forthebadge](https://img.shields.io/badge/powered%20by-%20github-7116FB.svg?logo=github&style=for-the-badge)](https://github.com/)
-[![forthebadge](https://img.shields.io/badge/build%20with-%20%E2%9D%A4-B6FF9B.svg?logo=heart&style=for-the-badge)](https://forthebadge.com/)
+[![forthebadge](https://img.shields.io/badge/made%20with-%20typescript-C1282D.svg?logo=typescript\&style=for-the-badge)](https://www.typescriptlang.org/)
+[![forthebadge](https://img.shields.io/badge/powered%20by-%20github-7116FB.svg?logo=github\&style=for-the-badge)](https://github.com/)
+[![forthebadge](https://img.shields.io/badge/build%20with-%20%E2%9D%A4-B6FF9B.svg?logo=heart\&style=for-the-badge)](https://forthebadge.com/)
 
 [repo]: https://github.com/AlexRogalskiy/github-action-json-fields
+
 [tags]: https://github.com/AlexRogalskiy/github-action-json-fields/tags
+
 [issues]: https://github.com/AlexRogalskiy/github-action-json-fields/issues
+
 [pulls]: https://github.com/AlexRogalskiy/github-action-json-fields/pulls
+
 [wiki]: https://github.com/AlexRogalskiy/github-action-json-fields/wiki
+
 [stars]: https://github.com/AlexRogalskiy/github-action-json-fields/stargazers
+
 [forkers]: https://github.com/AlexRogalskiy/github-action-json-fields/network/members
+
 [contributors]: https://github.com/AlexRogalskiy/github-action-json-fields/graphs/contributors
+
 [license_id]: https://img.shields.io/github/license/AlexRogalskiy/github-action-json-fields
+
 [license_content]: https://github.com/AlexRogalskiy/github-action-json-fields/blob/master/LICENSE
-[total_usages]:
-  https://img.shields.io/endpoint?url=https%3A%2F%2Fapi-git-master.endbug.vercel.app%2Fapi%2Fgithub-actions%2Fused-by%3Faction%3DAlexRogalskiy%2Fgithub-action-json-fields%26badge%3Dtrue
-[search_results]:
-  https://github.com/search?o=desc&q=AlexRogalskiy/github-action-json-fields+path%3A.github%2Fworkflows+language%3AYAML&s=&type=Code
+
+[total_usages]: https://img.shields.io/endpoint?url=https%3A%2F%2Fapi-git-master.endbug.vercel.app%2Fapi%2Fgithub-actions%2Fused-by%3Faction%3DAlexRogalskiy%2Fgithub-action-json-fields%26badge%3Dtrue
+
+[search_results]: https://github.com/search?o=desc&q=AlexRogalskiy/github-action-json-fields+path%3A.github%2Fworkflows+language%3AYAML&s=&type=Code
