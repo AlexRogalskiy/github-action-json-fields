@@ -74,6 +74,7 @@
 								<li class="tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter"><a href="typings_standard_types.html#comparator" class="tsd-kind-icon">Comparator</a></li>
 								<li class="tsd-kind-type-alias tsd-parent-kind-module"><a href="typings_standard_types.html#comparatormode" class="tsd-kind-icon">Comparator<wbr>Mode</a></li>
 								<li class="tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter"><a href="typings_standard_types.html#optional" class="tsd-kind-icon">Optional</a></li>
+								<li class="tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter"><a href="typings_standard_types.html#processor" class="tsd-kind-icon">Processor</a></li>
 								<li class="tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter"><a href="typings_standard_types.html#propertycomparator" class="tsd-kind-icon">Property<wbr>Comparator</a></li>
 							</ul>
 						</section>
@@ -88,7 +89,7 @@
 					<div class="tsd-signature tsd-kind-icon">Bi<wbr>Predicate&lt;T&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>a<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span>, b<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/AlexRogalskiy/github-action-json-fields/blob/aa4ac51/typings/standard-types.ts#L13">typings/standard-types.ts:13</a></li>
+							<li>Defined in <a href="https://github.com/AlexRogalskiy/github-action-json-fields/blob/837e34b/typings/standard-types.ts#L21">typings/standard-types.ts:21</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -141,7 +142,7 @@
 					<div class="tsd-signature tsd-kind-icon">Comparator&lt;T&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>a<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span>, b<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/AlexRogalskiy/github-action-json-fields/blob/aa4ac51/typings/standard-types.ts#L19">typings/standard-types.ts:19</a></li>
+							<li>Defined in <a href="https://github.com/AlexRogalskiy/github-action-json-fields/blob/837e34b/typings/standard-types.ts#L27">typings/standard-types.ts:27</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -191,7 +192,7 @@
 					<div class="tsd-signature tsd-kind-icon">Comparator<wbr>Mode<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">&quot;asc&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;desc&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/AlexRogalskiy/github-action-json-fields/blob/aa4ac51/typings/standard-types.ts#L31">typings/standard-types.ts:31</a></li>
+							<li>Defined in <a href="https://github.com/AlexRogalskiy/github-action-json-fields/blob/837e34b/typings/standard-types.ts#L39">typings/standard-types.ts:39</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -211,7 +212,7 @@
 					<div class="tsd-signature tsd-kind-icon">Optional&lt;T&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/AlexRogalskiy/github-action-json-fields/blob/aa4ac51/typings/standard-types.ts#L5">typings/standard-types.ts:5</a></li>
+							<li>Defined in <a href="https://github.com/AlexRogalskiy/github-action-json-fields/blob/837e34b/typings/standard-types.ts#L5">typings/standard-types.ts:5</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -232,12 +233,65 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter">
+					<a name="processor" class="tsd-anchor"></a>
+					<h3>Processor</h3>
+					<div class="tsd-signature tsd-kind-icon">Processor&lt;T, V&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>v<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">V</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/AlexRogalskiy/github-action-json-fields/blob/837e34b/typings/standard-types.ts#L13">typings/standard-types.ts:13</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Processor</p>
+						</div>
+						<dl class="tsd-comment-tags">
+							<dt>desc</dt>
+							<dd><p>Type representing processor function type in TypeScript</p>
+							</dd>
+							<dt>example</dt>
+							<dd><p>  type Processor = (v) =&gt; return new String(v)</p>
+							</dd>
+						</dl>
+					</div>
+					<h4 class="tsd-type-parameters-title">Type parameters</h4>
+					<ul class="tsd-type-parameters">
+						<li>
+							<h4>T</h4>
+						</li>
+						<li>
+							<h4>V</h4>
+						</li>
+					</ul>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter-signature">
+								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-type-alias">
+									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>v<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">V</span></li>
+								</ul>
+								<ul class="tsd-descriptions">
+									<li class="tsd-description">
+										<h4 class="tsd-parameters-title">Parameters</h4>
+										<ul class="tsd-parameters">
+											<li>
+												<h5>v: <span class="tsd-signature-type">T</span></h5>
+											</li>
+										</ul>
+										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">V</span></h4>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter">
 					<a name="propertycomparator" class="tsd-anchor"></a>
 					<h3>Property<wbr>Comparator</h3>
 					<div class="tsd-signature tsd-kind-icon">Property<wbr>Comparator&lt;T&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>a<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span>, b<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span>, value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/AlexRogalskiy/github-action-json-fields/blob/aa4ac51/typings/standard-types.ts#L25">typings/standard-types.ts:25</a></li>
+							<li>Defined in <a href="https://github.com/AlexRogalskiy/github-action-json-fields/blob/837e34b/typings/standard-types.ts#L33">typings/standard-types.ts:33</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -302,7 +356,13 @@
 						<a href="src_constants_constants.html">src/constants/constants</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="src_errors_errors.html">src/errors/errors</a>
+						<a href="src_errors_extendable_error.html">src/errors/extendable.error</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="src_errors_general_error.html">src/errors/general.error</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="src_errors_value_error.html">src/errors/value.error</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="src_utils_commons.html">src/utils/commons</a>
@@ -314,7 +374,13 @@
 						<a href="src_utils_files.html">src/utils/files</a>
 					</li>
 					<li class=" tsd-kind-module">
+						<a href="src_utils_loggers.html">src/utils/loggers</a>
+					</li>
+					<li class=" tsd-kind-module">
 						<a href="src_utils_profiles.html">src/utils/profiles</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="src_utils_properties.html">src/utils/properties</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="src_utils_serializers.html">src/utils/serializers</a>
@@ -346,6 +412,9 @@
 					</li>
 					<li class=" tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter">
 						<a href="typings_standard_types.html#optional" class="tsd-kind-icon">Optional</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter">
+						<a href="typings_standard_types.html#processor" class="tsd-kind-icon">Processor</a>
 					</li>
 					<li class=" tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter">
 						<a href="typings_standard_types.html#propertycomparator" class="tsd-kind-icon">Property<wbr>Comparator</a>

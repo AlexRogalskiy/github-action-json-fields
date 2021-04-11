@@ -7,10 +7,11 @@ import { ConfigOptions } from '../typings/domain-types'
 import { JsonMode } from '../typings/enum-types'
 import { BiPredicate, Comparator } from '../typings/standard-types'
 
-import { valueError } from './errors/errors'
+import { valueError } from './errors/value.error'
 
-import { getType, isArray, isValidFile } from './utils/validators'
 import { compareBy, compareByPropertyKey, compareIgnoreCase } from './utils/comparators'
+import { getProperty, getRequiredProperty } from './utils/properties'
+import { getType, isArray, isValidFile } from './utils/validators'
 import { getDataAsJson, storeDataAsJson } from './utils/files'
 import { serialize } from './utils/serializers'
 
@@ -64,7 +65,7 @@ const processSourceFile = async (options: ConfigOptions): Promise<boolean> => {
 
         await processJsonQuery(jsonData, jsonPath, mode, jsonFields)
 
-        await storeDataAsJson(targetPath, targetFile, jsonData)
+        storeDataAsJson(targetPath, targetFile, jsonData)
 
         return true
     } catch (error) {
@@ -93,22 +94,15 @@ const buildConfigOptions = (options: Partial<ConfigOptions>): ConfigOptions => {
     }
 }
 
-const getRequiredProperty = (property: string): string => {
-    return getProperty(property, { required: true })
-}
-
-const getProperty = (property: string, options?: core.InputOptions): string => {
-    return core.getInput(property, options)
-}
-
 const executeOperation = async (...options: Partial<ConfigOptions>[]): Promise<boolean> => {
-    const result: boolean[] = []
+    const promises: Promise<boolean>[] = []
 
     for (const option of options) {
         const options = buildConfigOptions(option)
-        const status = await processSourceFile(options)
-        result.push(status)
+        promises.push(processSourceFile(options))
     }
+
+    const result = await Promise.all(promises)
 
     return result.every(value => value)
 }
@@ -116,7 +110,7 @@ const executeOperation = async (...options: Partial<ConfigOptions>[]): Promise<b
 const runFilterOperation = async (): Promise<void> => {
     const sourceData = getProperty('sourceData')
 
-    let status: boolean
+    let status = false
     if (isValidFile(sourceData)) {
         const options = getDataAsJson<Partial<ConfigOptions>[]>(sourceData)
         status = await executeOperation(...options)
@@ -135,4 +129,4 @@ export default async function run(): Promise<void> {
     }
 }
 
-void run()
+run()

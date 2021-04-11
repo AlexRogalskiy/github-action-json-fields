@@ -30,6 +30,8 @@
 [![dependencies Status](https://status.david-dm.org/gh/AlexRogalskiy/github-action-json-fields.svg)](https://david-dm.org/AlexRogalskiy/github-action-json-fields)
 [![dependencies Status](https://status.david-dm.org/gh/AlexRogalskiy/github-action-json-fields.svg)](https://david-dm.org/AlexRogalskiy/github-action-json-fields?type=dev)
 
+[![Total alerts](https://img.shields.io/lgtm/alerts/g/AlexRogalskiy/github-action-json-fields.svg?logo=lgtm\&logoWidth=18)](https://lgtm.com/projects/g/AlexRogalskiy/github-action-json-fields/alerts/)
+[![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/AlexRogalskiy/github-action-json-fields.svg?logo=lgtm\&logoWidth=18)](https://lgtm.com/projects/g/AlexRogalskiy/github-action-json-fields/context:javascript)
 [![codecov](https://codecov.io/gh/AlexRogalskiy/github-action-json-fields/branch/master/graph/badge.svg?token=MuiGSj3HFi)](https://codecov.io/gh/AlexRogalskiy/github-action-json-fields)
 [![CI](https://github.com/AlexRogalskiy/github-action-json-fields/workflows/CI/badge.svg)](https://github.com/AlexRogalskiy/github-action-json-fields/actions/workflows/build.yml)
 [![CircleCI](https://circleci.com/gh/AlexRogalskiy/github-action-json-fields.svg?style=shield)](https://circleci.com/gh/AlexRogalskiy/github-action-json-fields)

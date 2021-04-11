@@ -12,7 +12,7 @@ export type ProfileOptions = {
      */
     readonly outputOptions?: boxen.Options
 }
-
+//--------------------------------------------------------------------------------------------------
 /**
  * ConfigOptions
  * @desc Type representing configuration options
@@ -43,3 +43,4 @@ export type ConfigOptions = {
      */
     readonly jsonFields: string[]
 }
+//--------------------------------------------------------------------------------------------------
