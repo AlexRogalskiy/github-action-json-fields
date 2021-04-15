@@ -1,6 +1,6 @@
 # *Json fields*
 
-> GitHub Action to process JSON file by provided fields
+> GitHub Action to filter JSON files by provided fields and operation mode (unique/duplicate)
 
 [![GitHub marketplace](https://img.shields.io/badge/marketplacegithub-json--fields-blue?logo=github)](https://github.com/marketplace/actions/json-fields)
 

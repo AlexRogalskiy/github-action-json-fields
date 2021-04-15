@@ -1,9 +1,8 @@
 {
     "name": "github-action-json-fields",
     "version": "0.0.0-dev",
-    "description": "Automatically filter JSON files by provided fields (unique/duplicate mode supported)",
+    "description": "Automatically filters JSON files by provided fields and operation mode (unique/duplicate)",
     "main": "dist/index.js",
-    "types": "dist/index.d.ts",
     "license": "GPL-3.0",
     "private": true,
     "scripts": {

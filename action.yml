@@ -1,5 +1,5 @@
 name: 'Json Fields'
-description: 'Process JSON file by provided fields and operation mode (unique/duplicate)'
+description: 'Automatically filters JSON files by provided fields and operation mode (unique/duplicate)'
 author: 'AlexRogalskiy'
 
 inputs:
