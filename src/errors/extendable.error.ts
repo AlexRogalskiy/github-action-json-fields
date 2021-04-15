@@ -38,6 +38,7 @@ export class ExtendableError extends Error {
 
         if (hasProperty(Error, 'captureStackTrace')) {
             Error.captureStackTrace(this, this.constructor)
+
             return
         }
 

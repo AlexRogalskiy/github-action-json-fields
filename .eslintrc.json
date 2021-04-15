@@ -14,6 +14,7 @@
         "plugin:eslint-comments/recommended",
         "plugin:unicorn/recommended",
         "plugin:@typescript-eslint/recommended",
+        "plugin:@typescript-eslint/recommended-requiring-type-checking",
         "prettier",
         "prettier/@typescript-eslint"
     ],
@@ -56,6 +57,7 @@
         "import/no-namespace": "off",
         "import/namespace": "off",
         "no-unused-vars": "off",
+        "semi": "off",
         "camelcase": "off",
         "no-invalid-this": "off",
         "no-angle-bracket-type-assertion": "off",
@@ -142,6 +144,37 @@
                 "allowSingleLine": true
             }
         ],
+        "import/order": [
+            "error",
+            {
+                "groups": [["external", "builtin"], "internal", ["parent", "sibling", "index"]]
+            }
+        ],
+        "sort-imports": [
+            "error",
+            {
+                "ignoreCase": true,
+                "ignoreDeclarationSort": true,
+                "ignoreMemberSort": false,
+                "memberSyntaxSortOrder": ["none", "all", "multiple", "single"]
+            }
+        ],
+        "padding-line-between-statements": [
+            "error",
+            {
+                "blankLine": "always",
+                "prev": "*",
+                "next": "return"
+            }
+        ],
+        "import/no-extraneous-dependencies": [
+            "error",
+            {
+                "devDependencies": true,
+                "optionalDependencies": false,
+                "peerDependencies": false
+            }
+        ],
         "@typescript-eslint/explicit-module-boundary-types": "off",
         "@typescript-eslint/no-unused-vars": "error",
         "@typescript-eslint/explicit-member-accessibility": [
@@ -182,9 +215,11 @@
         "@typescript-eslint/promise-function-async": "error",
         "@typescript-eslint/require-array-sort-compare": "error",
         "@typescript-eslint/restrict-plus-operands": "off",
-        "semi": "off",
+        "@typescript-eslint/restrict-template-expressions": "off",
         "@typescript-eslint/semi": ["error", "never"],
         "@typescript-eslint/type-annotation-spacing": "error",
+        "@typescript-eslint/no-unsafe-member-access": "off",
+        "@typescript-eslint/no-unsafe-assignment": "off",
         "@typescript-eslint/unbound-method": "off",
         "@typescript-eslint/member-ordering": "off",
         "@typescript-eslint/no-use-before-define": "off",
@@ -192,7 +227,17 @@
         "@typescript-eslint/no-empty-function": "warn",
         "@typescript-eslint/no-this-alias": "warn",
         "@typescript-eslint/ban-types": "warn",
-        "@typescript-eslint/quotes": "off"
+        "@typescript-eslint/no-unsafe-call": "off",
+        "@typescript-eslint/no-unsafe-return": "off",
+        "@typescript-eslint/quotes": "off",
+        "@typescript-eslint/prefer-optional-chain": "error",
+        "@typescript-eslint/no-shadow": "error",
+        "@typescript-eslint/prefer-nullish-coalescing": "off",
+        "@typescript-eslint/strict-boolean-expressions": "off",
+        "@typescript-eslint/no-unnecessary-boolean-literal-compare": "error",
+        "@typescript-eslint/no-unnecessary-condition": "error",
+        "@typescript-eslint/no-unnecessary-type-arguments": "error",
+        "@typescript-eslint/switch-exhaustiveness-check": "error"
     },
     "env": {
         "node": true,

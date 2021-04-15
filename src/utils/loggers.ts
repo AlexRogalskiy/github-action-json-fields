@@ -97,7 +97,3 @@ export const coreInfo = createLogger(core.info, message => boxen(message, profil
 export const coreError = createLogger(core.error, message => boxen(message.toString(), profile.outputOptions))
 
 export const coreDebug = createLogger(core.debug, message => boxen(message.toString(), profile.outputOptions))
-
-export const logArrayElements = <T>(index: number, array: T[]): void => {
-    logs(`array[${index}] = ${array[index]}`)
-}

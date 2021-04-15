@@ -19,7 +19,7 @@ export const ensureDirExists = (dir: string, options: MakeDirectoryOptions = { r
 export const getDataAsJson = <T>(fileName: string): T => {
     const fileData = readFileSync(fileName)
 
-    return deserialize(fileData.toString())
+    return deserialize<T>(fileData.toString())
 }
 
 export const storeDataAsJson = (filePath: string, fileName: string, data: any): void => {

@@ -28,12 +28,12 @@ const getComparator = (fields: string[]): Comparator<any> => {
     return compareBy(...comparators)
 }
 
-const processJsonQuery = async <T>(
+const processJsonQuery = <T>(
     jsonData: T,
     jsonPath: string,
     jsonMode: JsonMode,
     jsonFields: string[]
-): Promise<void> => {
+): void => {
     const propertyData = jp.query(jsonData, jsonPath)
     const filter = getFilter(jsonMode)
     const comparator = getComparator(jsonFields)
@@ -63,11 +63,11 @@ const processSourceFile = async (options: ConfigOptions): Promise<boolean> => {
     try {
         const jsonData = getDataAsJson<any>(sourceFile)
 
-        await processJsonQuery(jsonData, jsonPath, mode, jsonFields)
+        processJsonQuery(jsonData, jsonPath, mode, jsonFields)
 
         storeDataAsJson(targetPath, targetFile, jsonData)
 
-        return true
+        return Promise.resolve(true)
     } catch (error) {
         coreError(`Cannot process input file: ${sourceFile}`)
         throw error
@@ -98,8 +98,8 @@ const executeOperation = async (...options: Partial<ConfigOptions>[]): Promise<b
     const promises: Promise<boolean>[] = []
 
     for (const option of options) {
-        const options = buildConfigOptions(option)
-        promises.push(processSourceFile(options))
+        const value = buildConfigOptions(option)
+        promises.push(processSourceFile(value))
     }
 
     const result = await Promise.all(promises)
@@ -110,13 +110,8 @@ const executeOperation = async (...options: Partial<ConfigOptions>[]): Promise<b
 const runFilterOperation = async (): Promise<void> => {
     const sourceData = getProperty('sourceData')
 
-    let status = false
-    if (isValidFile(sourceData)) {
-        const options = getDataAsJson<Partial<ConfigOptions>[]>(sourceData)
-        status = await executeOperation(...options)
-    } else {
-        status = await executeOperation({})
-    }
+    const params = isValidFile(sourceData) ? getDataAsJson<Partial<ConfigOptions>[]>(sourceData) : [{}]
+    const status = await executeOperation(...params)
 
     core.setOutput('changed', status)
 }

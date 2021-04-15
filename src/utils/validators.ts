@@ -4,9 +4,9 @@ import { checkFileExists } from './files'
 
 export const getType = (obj: any): Optional<string> => {
     const value: string = {}.toString.call(obj)
-    const result = value.match(/\s(\w+)/)
+    const result = /\s(\w+)/.exec(value)
 
-    return result && result[1].toLowerCase()
+    return result?.[1].toLowerCase()
 }
 
 export const isNull = (value: any): boolean => {
@@ -19,6 +19,10 @@ export const isUndefined = (value: any): boolean => {
 
 export const isNullOrUndefined = (value: any): boolean => {
     return isNull(value) || isUndefined(value)
+}
+
+export const notNullOrUndefined = (value: any): boolean => {
+    return isNotNull(value) && isNotUndefined(value)
 }
 
 export const isNotNull = (value: any): boolean => {
@@ -67,6 +71,7 @@ export const isNumber = (value: any): boolean => {
  */
 export const hasProperty = (obj: any, prop: Optional<PropertyKey>): boolean => {
     if (isNullOrUndefined(obj)) return false
+
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     return isFunction(obj['hasOwnProperty']) ? Object.prototype.hasOwnProperty.call(obj, prop) : prop in obj
