@@ -30,6 +30,7 @@
 [![dependencies Status](https://status.david-dm.org/gh/AlexRogalskiy/github-action-json-fields.svg)](https://david-dm.org/AlexRogalskiy/github-action-json-fields)
 [![dependencies Status](https://status.david-dm.org/gh/AlexRogalskiy/github-action-json-fields.svg)](https://david-dm.org/AlexRogalskiy/github-action-json-fields?type=dev)
 
+[![codebeat badge](https://codebeat.co/badges/0111bd42-442b-49f5-9f9c-996fe588b07c)](https://codebeat.co/projects/github-com-alexrogalskiy-github-action-json-fields-master)
 [![Total alerts](https://img.shields.io/lgtm/alerts/g/AlexRogalskiy/github-action-json-fields.svg?logo=lgtm\&logoWidth=18)](https://lgtm.com/projects/g/AlexRogalskiy/github-action-json-fields/alerts/)
 [![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/AlexRogalskiy/github-action-json-fields.svg?logo=lgtm\&logoWidth=18)](https://lgtm.com/projects/g/AlexRogalskiy/github-action-json-fields/context:javascript)
 [![codecov](https://codecov.io/gh/AlexRogalskiy/github-action-json-fields/branch/master/graph/badge.svg?token=MuiGSj3HFi)](https://codecov.io/gh/AlexRogalskiy/github-action-json-fields)
