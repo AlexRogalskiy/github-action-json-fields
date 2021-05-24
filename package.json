@@ -49,7 +49,7 @@
     "dependencies": {
         "@actions/core": "^1.2.6",
         "env-cmd": "^10.1.0",
-        "jsonpath": "^1.1.0",
+        "jsonpath": "1.1.1",
         "lodash": "^4.17.20"
     },
     "devDependencies": {
